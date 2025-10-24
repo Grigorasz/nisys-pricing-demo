@@ -4,16 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NISYS – Prețuri (Demo)</title>
-  <!-- Tailwind CDN (JIT în browser) -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="min-h-screen bg-gray-50 text-slate-900">
   <!-- Header / Logo -->
-  <link rel="icon" type="image/png" href="favicon.png">
   <section class="flex flex-col items-center justify-center pt-16 pb-6">
     <div class="text-center">
-      <img src="poza5.png" alt="NISYS Logo" class="mx-auto w-130 md:w-130 mt-4">
-<p class="text-xs text-slate-500 mt-4 max-w-2xl mx-auto">
+      <!-- imagine logo -->
+      <img src="poza5.png" alt="NISYS Logo" class="mx-auto w-120 md:w-120 mt-2"/>
+      <div class="mt-4 w-24 h-1 bg-amber-500 mx-auto rounded-full"></div>
       <p class="mt-3 text-xs text-slate-500 max-w-2xl mx-auto">
         * Disclaimer: Aceasta este o pagină demo cu scop informativ; nu reprezintă o ofertă comercială oficială.
       </p>
@@ -24,7 +23,6 @@
   <section class="max-w-7xl mx-auto px-4 pt-4 pb-10">
     <div class="max-w-3xl mx-auto text-center">
       <span class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 text-amber-800 px-3 py-1 text-xs">
-        <!-- server icon -->
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"></rect><rect x="2" y="14" width="20" height="8" rx="2"></rect><path d="M6 6h.01M6 18h.01"/></svg>
         NISYS Cloud – Stocare în România
       </span>
@@ -37,37 +35,26 @@
         Alege pachetul potrivit pentru afacerea ta și adaugă opțiuni inteligente pentru securitate și eficiență.
         Totul rulat pe infrastructura NISYS din Mălureni, Argeș.
       </p>
-
-      <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
-        <a href="#plans" class="inline-flex items-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium">
-          Vezi pachetele
-          <svg class="ml-2 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </a>
-        <a href="#contact" class="text-sm underline underline-offset-4 text-slate-600 hover:text-slate-900">
-          Discută o ofertă personalizată
-        </a>
-      </div>
     </div>
 
     <!-- Card facturare (centru) -->
     <div class="relative mt-10">
       <div class="max-w-xl mx-auto rounded-3xl border border-gray-200 bg-white shadow-sm p-6">
         <div class="flex items-center justify-between">
-  <div class="text-sm text-slate-600">Facturare</div>
-
-  <!-- Toggle Lunar/Anual -->
-  <div id="billing-toggle" class="flex items-center gap-2 text-xs">
-    <button data-mode="monthly"
-            class="px-2 py-1 rounded border border-gray-200 bg-white font-semibold hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-400">
-      Lunar
-    </button>
-    <span class="text-slate-400">/</span>
-    <button data-mode="annual"
-            class="px-2 py-1 rounded border border-gray-200 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-400">
-      Anual <span class="ml-1 rounded bg-amber-100 px-1.5 py-0.5 text-amber-700">-15%</span>
-    </button>
-  </div>
-</div>
+          <div class="text-sm text-slate-600">Facturare</div>
+          <!-- Toggle Lunar/Anual -->
+          <div id="billing-toggle" class="flex items-center gap-2 text-xs">
+            <button data-mode="monthly"
+                    class="px-2 py-1 rounded border border-gray-200 bg-white font-semibold hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-400">
+              Lunar
+            </button>
+            <span class="text-slate-400">/</span>
+            <button data-mode="annual"
+                    class="px-2 py-1 rounded border border-gray-200 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-400">
+              Anual <span class="ml-1 rounded bg-amber-100 px-1.5 py-0.5 text-amber-700">-15%</span>
+            </button>
+          </div>
+        </div>
         <div class="mt-6 grid grid-cols-2 gap-4 text-sm text-slate-600">
           <div class="flex items-center gap-2">🔒 Scanare antivirus opțional</div>
           <div class="flex items-center gap-2">💾 Optimizare fișiere opțional</div>
@@ -80,18 +67,23 @@
 
   <!-- Planuri -->
   <section id="plans" class="max-w-7xl mx-auto px-4 pb-8">
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      <!-- Card template: flex-col + mt-auto pe buton (aliniere perfectă) -->
+
       <!-- Basic -->
-      <div class="rounded-3xl border border-gray-200 bg-white shadow-sm p-6">
+      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col
+                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Basic</h3>
+          <h3 class="text-xl font-semibold group-hover:text-amber-900">Basic</h3>
           <span class="text-xs rounded-full bg-gray-200 px-2 py-1 text-slate-700">Început bun</span>
         </div>
-        <div class="mt-4 text-4xl font-bold">€3<span class="text-base font-normal text-slate-500">/lună</span></div>
-        <div class="text-xs text-slate-500 mt-1">facturat lunar</div>
-        <p class="mt-3 text-slate-600">Pentru utilizatori individuali și freelanceri.</p>
+        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
+          €<span class="price" data-monthly="3">3</span><span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
+        </div>
+        <div class="text-xs text-slate-500 mt-1 subline group-hover:text-amber-800">facturat lunar</div>
+        <p class="mt-3 text-slate-600 group-hover:text-amber-900">Pentru utilizatori individuali și freelanceri.</p>
         <div class="mt-4 text-sm text-slate-700">Spațiu: <span class="font-medium">50 GB</span></div>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside">
+        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
           <li>1 utilizator</li>
           <li>Trafic inclus: 50 GB/lună</li>
           <li>Suport prin tichete (48h)</li>
@@ -101,79 +93,87 @@
           <li>Autentificare 2FA</li>
           <li>Backups zilnice (snapshot)</li>
         </ul>
-        <div class="mt-6">
+        <div class="mt-auto pt-6">
           <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Începe trial gratuit</a>
         </div>
       </div>
 
-      <!-- Pro -->
-      <div class="rounded-3xl border border-gray-200 bg-white shadow-sm p-6 ring-2 ring-amber-500/40">
+      <!-- Pro (highlight) -->
+      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40
+                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Pro</h3>
+          <h3 class="text-xl font-semibold group-hover:text-amber-900">Pro</h3>
           <span class="text-xs rounded-full bg-gray-200 px-2 py-1 text-slate-700">Recomandat</span>
         </div>
-        <div class="mt-4 text-4xl font-bold">€10<span class="text-base font-normal text-slate-500">/lună</span></div>
-        <div class="text-xs text-slate-500 mt-1">facturat lunar</div>
-        <p class="mt-3 text-slate-600">Cel mai bun raport preț/beneficiu pentru IMM-uri.</p>
+        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
+          €<span class="price" data-monthly="10">10</span><span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
+        </div>
+        <div class="text-xs text-slate-500 mt-1 subline group-hover:text-amber-800">facturat lunar</div>
+        <p class="mt-3 text-slate-600 group-hover:text-amber-900">Cel mai bun raport preț/beneficiu pentru IMM-uri.</p>
         <div class="mt-4 text-sm text-slate-700">Spațiu: <span class="font-medium">200 GB</span></div>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside">
+        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
           <li>Până la 5 utilizatori</li>
           <li>Trafic inclus: 200 GB/lună</li>
           <li>Share securizat cu link + parolă</li>
           <li>Suport prioritar (24h)</li>
           <li>Stocare în România (GDPR), Nextcloud, TLS 1.3, 2FA, Backups</li>
         </ul>
-        <div class="mt-6">
+        <div class="mt-auto pt-6">
           <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Începe trial gratuit</a>
         </div>
       </div>
 
-      <!-- Business -->
-      <div class="rounded-3xl border border-gray-200 bg-white shadow-sm p-6">
+      <!-- Business (fără SLA în listă) -->
+      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col
+                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Business</h3>
-          <span class="text-xs rounded-full bg-gray-200 px-2 py-1 text-slate-700">SLA inclus</span>
+          <h3 class="text-xl font-semibold group-hover:text-amber-900">Business</h3>
+          <span class="text-xs rounded-full bg-gray-200 px-2 py-1 text-slate-700">Plan companie</span>
         </div>
-        <div class="mt-4 text-4xl font-bold">€40<span class="text-base font-normal text-slate-500">/lună</span></div>
-        <div class="text-xs text-slate-500 mt-1">facturat lunar</div>
-        <p class="mt-3 text-slate-600">Pentru firme cu procese critice și audit.</p>
+        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
+          €<span class="price" data-monthly="40">40</span><span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
+        </div>
+        <div class="text-xs text-slate-500 mt-1 subline group-hover:text-amber-800">facturat lunar</div>
+        <p class="mt-3 text-slate-600 group-hover:text-amber-900">Pentru firme cu procese critice și audit.</p>
         <div class="mt-4 text-sm text-slate-700">Spațiu: <span class="font-medium">1 TB</span></div>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside">
+        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
           <li>Utilizatori nelimitați</li>
           <li>Trafic inclus: 1 TB/lună</li>
           <li>Versionare + recovery</li>
-          <li>SLA 99.9% + RTO/RPO dedicate</li>
           <li>Integrare LDAP/SSO la cerere</li>
         </ul>
-        <div class="mt-6">
+        <div class="mt-auto pt-6">
           <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Începe trial gratuit</a>
         </div>
       </div>
 
       <!-- Enterprise -->
-      <div class="rounded-3xl border border-gray-200 bg-white shadow-sm p-6">
+      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col
+                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Enterprise</h3>
+          <h3 class="text-xl font-semibold group-hover:text-amber-900">Enterprise</h3>
           <span class="text-xs rounded-full bg-gray-200 px-2 py-1 text-slate-700">Personalizat</span>
         </div>
-        <div class="mt-4 text-4xl font-bold">€200<span class="text-base font-normal text-slate-500">/lună</span></div>
-        <div class="text-xs text-slate-500 mt-1">facturat lunar</div>
-        <p class="mt-3 text-slate-600">Soluții la cheie, multi-site și API.</p>
+        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
+          €<span class="price" data-monthly="200">200</span><span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
+        </div>
+        <div class="text-xs text-slate-500 mt-1 subline group-hover:text-amber-800">facturat lunar</div>
+        <p class="mt-3 text-slate-600 group-hover:text-amber-900">Soluții la cheie, multi-site și API.</p>
         <div class="mt-4 text-sm text-slate-700">Spațiu: <span class="font-medium">&gt; 5 TB</span></div>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside">
+        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
           <li>Arhitectură dedicată / on-prem</li>
-          <li>SLA contractual &gt;99.95%</li>
+          <li>SLA opțional (prin contract)</li>
           <li>Backup geografic opțional</li>
           <li>Integrare API + automatizări</li>
         </ul>
-        <div class="mt-6">
+        <div class="mt-auto pt-6">
           <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Cere ofertă</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Add-ons -->
+  <!-- Opțiuni suplimentare -->
   <section class="max-w-7xl mx-auto px-4 py-10">
     <div class="flex items-center gap-3">
       <h2 class="text-2xl font-semibold">Opțiuni suplimentare</h2>
@@ -195,7 +195,7 @@
         </div>
         <p class="mt-3 text-slate-600">Detecție la încărcare + scanare periodică și alerte.</p>
         <div class="mt-5">
-          <a class="w-full inline-flex justify-center rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a>
+          <a class="w-full inline-flex justify-center rounded-2zl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a>
         </div>
       </div>
 
@@ -213,25 +213,27 @@
         </div>
         <p class="mt-3 text-slate-600">WebP/AVIF, compresie PDF, deduplicare blocuri fără pierderi vizibile.</p>
         <div class="mt-5">
-          <a class="w-full inline-flex justify-center rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a>
+          <a class="w-full inline-flex justify-center rounded-2zl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a>
         </div>
       </div>
 
-      <!-- Bundle -->
+      <!-- Nou: Alertă acces IP necunoscut (în curând) -->
       <div class="rounded-3xl border border-gray-200 bg-white shadow-sm p-6">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <span class="inline-flex items-center justify-center h-5 w-5">⚡</span>
-            <h3 class="text-lg font-semibold">Bundle Securitate + Optimizare</h3>
+            <span class="inline-flex items-center justify-center h-5 w-5">🔔</span>
+            <h3 class="text-lg font-semibold">Alertă acces din IP necunoscut</h3>
           </div>
-          <div class="text-right">
-            <div class="text-2xl font-bold">€17<span class="text-sm font-normal text-slate-500">/lună</span></div>
-            <div class="text-xs text-slate-500">facturat lunar</div>
-          </div>
+          <span class="text-xs rounded-full bg-gray-200 px-2 py-1 text-slate-700">în curând</span>
         </div>
-        <p class="mt-3 text-slate-600">Pachet promo: antivirus + optimizare la preț mai bun.</p>
+        <p class="mt-3 text-slate-600">
+          Când cineva accesează contul de pe un IP nou, proprietarul primește alertă + jurnal:
+          ce fișiere a vizualizat, ce a modificat, ce a încărcat sau descărcat.
+        </p>
         <div class="mt-5">
-          <a class="w-full inline-flex justify-center rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a>
+          <button disabled class="w-full inline-flex justify-center rounded-2zl border border-gray-200 bg-gray-100 text-slate-400 px-5 py-3 font-medium cursor-not-allowed">
+            Disponibil în curând
+          </button>
         </div>
       </div>
     </div>
@@ -281,44 +283,16 @@
             <td class="px-4 py-3">✓ (geo opțional)</td>
           </tr>
           <tr class="text-slate-600">
-            <td class="px-4 py-3">SLA</td>
-            <td class="px-4 py-3">best-effort</td>
-            <td class="px-4 py-3">prioritar 24h</td>
-            <td class="px-4 py-3">99.9%</td>
-            <td class="px-4 py-3">&gt;99.95%</td>
-          </tr>
-          <tr class="text-slate-600">
-            <td class="px-4 py-3">Integrare LDAP/SSO</td>
-            <td class="px-4 py-3">—</td>
-            <td class="px-4 py-3">—</td>
-            <td class="px-4 py-3">opțional</td>
-            <td class="px-4 py-3">✓</td>
-          </tr>
-          <tr class="text-slate-600">
             <td class="px-4 py-3">Suport</td>
             <td class="px-4 py-3">tichete (48h)</td>
             <td class="px-4 py-3">prioritar (24h)</td>
-            <td class="px-4 py-3">SLA + telefon</td>
-            <td class="px-4 py-3">manager dedicat</td>
+            <td class="px-4 py-3">tichete (ore de program)</td>
+            <td class="px-4 py-3">manager dedicat / contract</td>
           </tr>
         </tbody>
       </table>
     </div>
     <p class="mt-3 text-xs text-slate-500">* Trafic suplimentar (egress) peste limita inclusă: €0.04–€0.08 / GB. Migrarea inițială poate fi gratuită în campanii promo.</p>
-  </section>
-
-  <!-- FAQ -->
-  <section class="max-w-7xl mx-auto px-4 py-10">
-    <div class="flex items-center gap-2">
-      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.82 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12" y2="17"/></svg>
-      <h2 class="text-2xl font-semibold">Întrebări frecvente</h2>
-    </div>
-    <div class="mt-6 grid md:grid-cols-2 gap-6 text-slate-600">
-      <div class="rounded-2xl border border-gray-200 bg-white shadow-sm p-5"><h3 class="font-semibold">Ce include trial-ul?</h3><p class="mt-2">30 de zile pe planul Pro, fără add-on-uri. Poți activa add-on-urile oricând.</p></div>
-      <div class="rounded-2xl border border-gray-200 bg-white shadow-sm p-5"><h3 class="font-semibold">Unde sunt stocate datele?</h3><p class="mt-2">Pe infrastructura NISYS din Mălureni, Argeș, cu backup criptat zilnic.</p></div>
-      <div class="rounded-2xl border border-gray-200 bg-white shadow-sm p-5"><h3 class="font-semibold">Cum funcționează reducerea anuală?</h3><p class="mt-2">Plătești în avans 12 luni cu 15% reducere față de lunar. Poți trece oricând înapoi pe lunar la reînnoire.</p></div>
-      <div class="rounded-2xl border border-gray-200 bg-white shadow-sm p-5"><h3 class="font-semibold">Pot crește spațiul ulterior?</h3><p class="mt-2">Da, oricând. Trecerea la un plan mai mare este instant, cu diferența pro-rata.</p></div>
-    </div>
   </section>
 
   <!-- CTA -->
@@ -331,7 +305,6 @@
       <div class="flex items-center gap-3">
         <a class="rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#">Creează cont</a>
         <a class="rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium inline-flex items-center gap-2" href="mailto:contact@nisys.ro">
-          <!-- mail icon -->
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
           Contactează-ne
         </a>
@@ -339,5 +312,47 @@
     </div>
     <p class="text-xs text-slate-500 mt-3">* Prețurile includ TVA dacă se specifică în facturare. Condiții comerciale și SLA detaliate la cerere.</p>
   </section>
+
+  <!-- Script pentru toggle lunar/anual -->
+  <script>
+    (function(){
+      const discount = 0.15; // 15% anual
+      const prices = Array.from(document.querySelectorAll('.price'));
+      const sublines = Array.from(document.querySelectorAll('.subline'));
+      const toggle = document.getElementById('billing-toggle');
+
+      function euro(n){ return n.toLocaleString('ro-RO', {maximumFractionDigits:2}); }
+
+      function setMode(mode){
+        const isAnnual = mode === 'annual';
+        prices.forEach(span=>{
+          const m = parseFloat(span.dataset.monthly || '0');
+          const val = isAnnual ? Math.round(m*(1-discount)*100)/100 : m;
+          span.textContent = euro(val);
+        });
+        sublines.forEach((el, idx)=>{
+          const m = parseFloat(prices[idx].dataset.monthly||'0');
+          const a = Math.round(m*(1-discount)*100)/100;
+          el.textContent = isAnnual
+            ? `facturat anual (${euro(m)} → ${euro(a)}/lună)`
+            : 'facturat lunar';
+        });
+        toggle.querySelectorAll('button').forEach(b=>{
+          const active = b.dataset.mode===mode;
+          b.classList.toggle('font-semibold', active);
+          b.classList.toggle('border-amber-300', active);
+          b.classList.toggle('bg-amber-50', active);
+        });
+      }
+
+      toggle.addEventListener('click', (e)=>{
+        const btn = e.target.closest('button[data-mode]');
+        if(!btn) return;
+        setMode(btn.dataset.mode);
+      });
+
+      setMode('monthly'); // default
+    })();
+  </script>
 </body>
 </html>
