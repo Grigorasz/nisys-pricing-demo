@@ -53,15 +53,21 @@
     <div class="relative mt-10">
       <div class="max-w-xl mx-auto rounded-3xl border border-gray-200 bg-white shadow-sm p-6">
         <div class="flex items-center justify-between">
-          <div class="text-sm text-slate-600">Facturare</div>
-          <div class="flex items-center gap-3 text-xs">
-            <span class="font-semibold">Lunar</span>
-            <span class="text-slate-500">/</span>
-            <span class="font-semibold">Anual
-              <span class="ml-1 rounded bg-amber-100 px-2 py-0.5 text-amber-700">-15%</span>
-            </span>
-          </div>
-        </div>
+  <div class="text-sm text-slate-600">Facturare</div>
+
+  <!-- Toggle Lunar/Anual -->
+  <div id="billing-toggle" class="flex items-center gap-2 text-xs">
+    <button data-mode="monthly"
+            class="px-2 py-1 rounded border border-gray-200 bg-white font-semibold hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-400">
+      Lunar
+    </button>
+    <span class="text-slate-400">/</span>
+    <button data-mode="annual"
+            class="px-2 py-1 rounded border border-gray-200 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-400">
+      Anual <span class="ml-1 rounded bg-amber-100 px-1.5 py-0.5 text-amber-700">-15%</span>
+    </button>
+  </div>
+</div>
         <div class="mt-6 grid grid-cols-2 gap-4 text-sm text-slate-600">
           <div class="flex items-center gap-2">🔒 Scanare antivirus opțional</div>
           <div class="flex items-center gap-2">💾 Optimizare fișiere opțional</div>
