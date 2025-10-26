@@ -8,9 +8,42 @@
 </head>
 <body class="min-h-screen bg-gray-950 text-gray-100">
   <!-- Header / Logo -->
+  <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          amber: {
+            50: '#fff7e6',
+            100: '#ffedcc',
+            200: '#ffd699',
+            300: '#ffc266',
+            400: '#ffad33',
+            500: '#ff9900',
+            600: '#cc7a00',
+            700: '#995c00',
+            800: '#663d00',
+            900: '#331f00'
+          }
+        }
+      }
+    }
+  }
+</script>
   <section class="flex flex-col items-center justify-center pt-16 pb-6">
     <div class="text-center">
       <!-- imagine logo (ai grijă să existe logo-nisys.png în repo) -->
+      <style>
+  .card {
+    @apply rounded-3xl border border-gray-800 bg-gray-900 text-gray-100 shadow-sm;
+  }
+  .btn-primary {
+    @apply rounded-2xl bg-amber-600 hover:bg-amber-500 text-white px-5 py-3 font-medium;
+  }
+  .btn-secondary {
+    @apply rounded-2xl border border-amber-400 bg-amber-950 text-amber-300 hover:bg-amber-900 px-5 py-3 font-medium;
+  }
+</style>
       <img src="poza6.png?v=2" alt="NISYS Logo"
            class="mx-auto w-56 md:w-64 mt-2 block"
            style="filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));" />
