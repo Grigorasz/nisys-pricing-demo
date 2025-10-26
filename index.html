@@ -6,11 +6,10 @@
   <title>NISYS – Prețuri (Demo)</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gray-50 text-slate-900">
+<body class="min-h-screen bg-neutral-100 text-slate-900">
   <!-- Header / Logo -->
   <section class="flex flex-col items-center justify-center pt-16 pb-6">
     <div class="text-center">
-      <!-- imagine logo (ai grijă să existe logo-nisys.png în repo) -->
       <img src="poza6.png?v=2" alt="NISYS Logo"
            class="mx-auto w-56 md:w-64 mt-2 block"
            style="filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));" />
@@ -41,18 +40,17 @@
 
     <!-- Card facturare (centru) -->
     <div class="relative mt-10">
-      <div class="max-w-xl mx-auto rounded-3xl border border-gray-200 bg-white shadow-sm p-6">
+      <div class="max-w-xl mx-auto rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6">
         <div class="flex items-center justify-between">
           <div class="text-sm text-slate-600">Facturare</div>
-          <!-- Toggle Lunar/Anual -->
           <div id="billing-toggle" class="flex items-center gap-2 text-xs">
             <button data-mode="monthly"
-              class="px-2 py-1 rounded border border-gray-200 bg-white font-semibold hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-400">
+              class="px-2 py-1 rounded border border-neutral-200 bg-neutral-50 font-semibold hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-amber-400">
               Lunar
             </button>
             <span class="text-slate-400">/</span>
             <button data-mode="annual"
-              class="px-2 py-1 rounded border border-gray-200 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-400">
+              class="px-2 py-1 rounded border border-neutral-200 bg-neutral-50 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-amber-400">
               Anual <span class="ml-1 rounded bg-amber-100 px-1.5 py-0.5 text-amber-700">-15%</span>
             </button>
           </div>
@@ -72,10 +70,8 @@
     <h2 class="text-2xl font-semibold mb-4 text-center">Planuri Stocare Date Cloud</h2>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-      <!-- Template card: group + hover + flex-col + mt-auto pe buton -->
-
       <!-- Basic -->
-      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col
+      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col
                   transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold group-hover:text-amber-900">Basic</h3>
@@ -103,8 +99,8 @@
         </div>
       </div>
 
-      <!-- Pro (highlight) -->
-      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40
+      <!-- Pro -->
+      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40
                   transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold group-hover:text-amber-900">Pro</h3>
@@ -130,7 +126,7 @@
       </div>
 
       <!-- Business -->
-      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col
+      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col
                   transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold group-hover:text-amber-900">Business</h3>
@@ -155,11 +151,11 @@
       </div>
 
       <!-- Enterprise -->
-      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col
+      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col
                   transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold group-hover:text-amber-900">Enterprise</h3>
-          <span class="text-xs rounded-full bg-gray-200 px-2 py-1 text-slate-700">Personalizat</span>
+          <span class="text-xs rounded-full bg-neutral-200 px-2 py-1 text-slate-700">Personalizat</span>
         </div>
         <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
           €<span class="price" data-monthly="200">200</span><span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
@@ -188,7 +184,7 @@
 
     <div class="mt-6 grid md:grid-cols-3 gap-6 items-stretch">
       <!-- Web Basic -->
-      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col
+      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col
                   transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold group-hover:text-amber-900">Web Basic</h3>
@@ -211,7 +207,7 @@
       </div>
 
       <!-- Web Pro -->
-      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40
+      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40
                   transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold group-hover:text-amber-900">Web Pro</h3>
@@ -234,7 +230,7 @@
       </div>
 
       <!-- Web Business -->
-      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col
+      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col
                   transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold group-hover:text-amber-900">Web Business</h3>
@@ -265,9 +261,7 @@
     <p class="mt-2 text-slate-600 max-w-2xl mx-auto text-center">Combină planuri Cloud + Web la preț mai bun. Ultimul pachet include și opțiunile suplimentare.</p>
 
     <div class="mt-6 grid md:grid-cols-3 gap-6 items-stretch">
-      <!-- Start Bundle -->
-      <div class="rounded-3xl border border-amber-300 bg-amber-50 shadow-sm p-6 h-full flex flex-col
-                  transition transform hover:scale-[1.02] hover:shadow-xl">
+      <div class="rounded-3xl border border-amber-300 bg-amber-50 shadow-sm p-6 h-full flex flex-col transition transform hover:scale-[1.02] hover:shadow-xl">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold text-amber-900">Start Bundle</h3>
           <span class="text-xs rounded-full bg-white/70 px-2 py-1 text-amber-800 border border-amber-200">promo</span>
@@ -287,9 +281,7 @@
         </div>
       </div>
 
-      <!-- Grow Bundle -->
-      <div class="rounded-3xl border border-amber-300 bg-amber-100 shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40
-                  transition transform hover:scale-[1.02] hover:shadow-xl">
+      <div class="rounded-3xl border border-amber-300 bg-amber-100 shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40 transition transform hover:scale-[1.02] hover:shadow-xl">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold text-amber-900">Grow Bundle</h3>
           <span class="text-xs rounded-full bg-white px-2 py-1 text-amber-800 border border-amber-200">recomandat</span>
@@ -309,9 +301,7 @@
         </div>
       </div>
 
-      <!-- Max Bundle -->
-      <div class="rounded-3xl border border-amber-400 bg-gradient-to-b from-amber-100 to-amber-50 shadow p-6 h-full flex flex-col
-                  transition transform hover:scale-[1.02] hover:shadow-xl">
+      <div class="rounded-3xl border border-amber-400 bg-gradient-to-b from-amber-100 to-amber-50 shadow p-6 h-full flex flex-col transition transform hover:scale-[1.02] hover:shadow-xl">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold text-amber-900">Max Bundle</h3>
           <span class="text-xs rounded-full bg-amber-500 text-white px-2 py-1">cel mai complet</span>
@@ -333,58 +323,43 @@
     </div>
   </section>
 
-
   <!-- Domenii -->
-<section id="domains" class="max-w-7xl mx-auto px-4 py-10">
-  <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-2xl font-semibold">Înregistrează-ți domeniul</h2>
-    <p class="mt-3 text-slate-600">
-      Alege numele perfect pentru brandul tău și pornește online în câteva minute.
-      Înregistrare și transfer pentru .ro, .com, .eu, .net, DNS gestionat, protecție WHOIS (unde e disponibil),
-      și <strong>DNSSEC</strong> pentru securitate sporită. Te ajutăm gratuit cu configurarea recordurilor pentru site și e-mail.
-    </p>
-  </div>
-
-  <div class="max-w-2xl mx-auto mt-6 rounded-3xl border border-gray-200 bg-white shadow-sm p-6">
-    <form class="flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); alert('Demo: aceste este un demo.');">
-      <input
-        type="text"
-        placeholder="ex: nume-firma.ro"
-        class="flex-1 rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400"
-        aria-label="Numele domeniului"
-      />
-      <button
-        type="submit"
-        class="rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium"
-      >
-        Verifică disponibilitatea
-      </button>
-    </form>
-
-    <div class="mt-4 grid sm:grid-cols-3 gap-3 text-sm text-slate-600">
-      <div class="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-2 text-amber-900">
-        .ro – înregistrare & transfer
-      </div>
-      <div class="rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2">
-        .com • .net • .org • .eu
-      </div>
-      <div class="rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2">
-        WHOIS Privacy* • DNSSEC
-      </div>
+  <section id="domains" class="max-w-7xl mx-auto px-4 py-10">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-semibold">Înregistrează-ți domeniul</h2>
+      <p class="mt-3 text-slate-600">
+        Alege numele perfect pentru brandul tău și pornește online în câteva minute.
+        Înregistrare și transfer pentru .ro, .com, .eu, .net, DNS gestionat, protecție WHOIS (unde e disponibil),
+        și <strong>DNSSEC</strong> pentru securitate sporită. Te ajutăm gratuit cu configurarea recordurilor pentru site și e-mail.
+      </p>
     </div>
 
-    <p class="mt-3 text-xs text-slate-500">
-      * Protecția WHOIS este disponibilă pentru anumite TLD-uri (nu pentru .ro). Întreabă-ne ce opțiuni ai pentru extensia dorită.
-    </p>
-  </div>
+    <div class="max-w-2xl mx-auto mt-6 rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6">
+      <form class="flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); alert('Demo: aici vei integra verificarea disponibilității domeniilor.');">
+        <input type="text" placeholder="ex: nume-firma.ro"
+               class="flex-1 rounded-2xl border border-neutral-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400"
+               aria-label="Numele domeniului"/>
+        <button type="submit" class="rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium">
+          Verifică disponibilitatea
+        </button>
+      </form>
 
-  <div class="text-center mt-4">
-    <a href="#contact" class="inline-flex items-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium">
-      Cere-ne o ofertă pentru domeniul tău
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-    </a>
-  </div>
-</section>
+      <div class="mt-4 grid sm:grid-cols-3 gap-3 text-sm text-slate-600">
+        <div class="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-2 text-amber-900">.ro – înregistrare & transfer</div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-2">.com • .net • .org • .eu</div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-2">WHOIS Privacy* • DNSSEC</div>
+      </div>
+
+      <p class="mt-3 text-xs text-slate-500">* Protecția WHOIS este disponibilă pentru anumite TLD-uri (nu pentru .ro).</p>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="#contact" class="inline-flex items-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium">
+        Cere-ne o ofertă pentru domeniul tău
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </section>
 
   <!-- Opțiuni suplimentare -->
   <section class="max-w-7xl mx-auto px-4 py-10">
@@ -394,60 +369,31 @@
     </div>
     <p class="mt-2 text-slate-600 max-w-2xl">Adaugă securitate și economie de spațiu fără griji. Poți activa oricând din panou.</p>
     <div class="mt-6 grid md:grid-cols-3 gap-6">
-      <!-- AV -->
-      <div class="rounded-3xl border border-gray-200 bg-white shadow-sm p-6 flex flex-col">
+      <div class="rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 flex flex-col">
         <div class="flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex items-center justify-center h-5 w-5">🛡️</span>
-            <h3 class="text-lg font-semibold">Scanare antivirus la upload</h3>
-          </div>
-          <div class="text-right">
-            <div class="text-2xl font-bold">€3.5<span class="text-sm font-normal text-slate-500">/lună</span></div>
-            <div class="text-xs text-slate-500">facturat lunar</div>
-          </div>
+          <div class="flex items-center gap-3"><span class="inline-flex h-5 w-5 items-center justify-center">🛡️</span><h3 class="text-lg font-semibold">Scanare antivirus la upload</h3></div>
+          <div class="text-right"><div class="text-2xl font-bold">€3.5<span class="text-sm font-normal text-slate-500">/lună</span></div><div class="text-xs text-slate-500">facturat lunar</div></div>
         </div>
         <p class="mt-3 text-slate-600">Detecție la încărcare + scanare periodică și alerte.</p>
-        <div class="mt-auto pt-5">
-          <a class="w-full inline-flex justify-center rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a>
-        </div>
+        <div class="mt-auto pt-5"><a class="w-full inline-flex justify-center rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a></div>
       </div>
 
-      <!-- Optimize -->
-      <div class="rounded-3xl border border-gray-200 bg-white shadow-sm p-6 flex flex-col">
+      <div class="rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 flex flex-col">
         <div class="flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex items-center justify-center h-5 w-5">💾</span>
-            <h3 class="text-lg font-semibold">Optimizare inteligentă fișiere</h3>
-          </div>
-          <div class="text-right">
-            <div class="text-2xl font-bold">€5.5<span class="text-sm font-normal text-slate-500">/lună</span></div>
-            <div class="text-xs text-slate-500">facturat lunar</div>
-          </div>
+          <div class="flex items-center gap-3"><span class="inline-flex h-5 w-5 items-center justify-center">💾</span><h3 class="text-lg font-semibold">Optimizare inteligentă fișiere</h3></div>
+          <div class="text-right"><div class="text-2xl font-bold">€5.5<span class="text-sm font-normal text-slate-500">/lună</span></div><div class="text-xs text-slate-500">facturat lunar</div></div>
         </div>
         <p class="mt-3 text-slate-600">WebP/AVIF, compresie PDF, deduplicare blocuri fără pierderi vizibile.</p>
-        <div class="mt-auto pt-5">
-          <a class="w-full inline-flex justify-center rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a>
-        </div>
+        <div class="mt-auto pt-5"><a class="w-full inline-flex justify-center rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a></div>
       </div>
 
-      <!-- Alertă IP necunoscut (în curând) -->
-      <div class="rounded-3xl border border-gray-200 bg-white shadow-sm p-6 flex flex-col">
+      <div class="rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 flex flex-col">
         <div class="flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex items-center justify-center h-5 w-5">🔔</span>
-            <h3 class="text-lg font-semibold">Alertă acces din IP necunoscut</h3>
-          </div>
-          <span class="text-xs rounded-full bg-gray-200 px-2 py-1 text-slate-700">în curând</span>
+          <div class="flex items-center gap-3"><span class="inline-flex h-5 w-5 items-center justify-center">🔔</span><h3 class="text-lg font-semibold">Alertă acces din IP necunoscut</h3></div>
+          <span class="text-xs rounded-full bg-neutral-200 px-2 py-1 text-slate-700">în curând</span>
         </div>
-        <p class="mt-3 text-slate-600">
-          Când cineva accesează contul de pe un IP nou, proprietarul primește alertă + jurnal:
-          fișiere vizualizate, modificări, încărcări și descărcări.
-        </p>
-        <div class="mt-auto pt-5">
-          <button disabled class="w-full inline-flex justify-center rounded-2xl border border-gray-200 bg-gray-100 text-slate-400 px-5 py-3 font-medium cursor-not-allowed">
-            Disponibil în curând
-          </button>
-        </div>
+        <p class="mt-3 text-slate-600">Când cineva accesează contul de pe un IP nou, proprietarul primește alertă + jurnal: fișiere vizualizate, modificări, încărcări și descărcări.</p>
+        <div class="mt-auto pt-5"><button disabled class="w-full inline-flex justify-center rounded-2xl border border-neutral-200 bg-neutral-100 text-slate-400 px-5 py-3 font-medium cursor-not-allowed">Disponibil în curând</button></div>
       </div>
     </div>
   </section>
@@ -455,9 +401,9 @@
   <!-- Compară pachetele -->
   <section class="max-w-7xl mx-auto px-4 py-10">
     <h2 class="text-2xl font-semibold text-center">Compară pachetele</h2>
-    <div class="mt-4 overflow-x-auto rounded-2xl border border-gray-200">
+    <div class="mt-4 overflow-x-auto rounded-2xl border border-neutral-200">
       <table class="min-w-full text-sm">
-        <thead class="bg-gray-100 text-slate-700">
+        <thead class="bg-neutral-100 text-slate-700">
           <tr>
             <th class="px-4 py-3 text-left">Funcție</th>
             <th class="px-4 py-3 text-left">Basic</th>
@@ -466,7 +412,7 @@
             <th class="px-4 py-3 text-left">Enterprise</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200">
+        <tbody class="divide-y divide-neutral-200">
           <tr class="text-slate-600">
             <td class="px-4 py-3">Spațiu inclus</td>
             <td class="px-4 py-3">50 GB</td>
@@ -510,7 +456,7 @@
 
   <!-- CTA -->
   <section id="contact" class="max-w-7xl mx-auto px-4 pb-16">
-    <div class="rounded-3xl border border-gray-200 bg-white shadow-sm p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
         <h3 class="text-2xl font-semibold">Gata să începi cu NISYS Cloud?</h3>
         <p class="text-slate-600 mt-2">Creează un cont, pornește trialul Pro și adaugă add-on-urile dorite. Pentru &gt;5 TB, scrie-ne pentru ofertă dedicată.</p>
@@ -526,17 +472,16 @@
     <p class="text-xs text-slate-500 mt-3 text-center">* Prețurile promo se aplică pe 6 luni de la activare, apoi revin la standard.</p>
   </section>
 
-  <!-- Script pentru toggle lunar/anual (doar pe planurile Cloud) -->
+  <!-- Toggle lunar/anual -->
   <script>
     (function(){
-      const discount = 0.15; // 15% anual
+      const discount = 0.15;
       const prices = Array.from(document.querySelectorAll('#plans .price'));
       const sublines = Array.from(document.querySelectorAll('#plans .subline'));
       const olds = Array.from(document.querySelectorAll('#plans .old-price'));
       const toggle = document.getElementById('billing-toggle');
 
       function euro(n){ return n.toLocaleString('ro-RO', {maximumFractionDigits:2}); }
-
       function setMode(mode){
         const isAnnual = mode === 'annual';
         prices.forEach((span, i)=>{
@@ -562,14 +507,12 @@
           b.classList.toggle('bg-amber-50', active);
         });
       }
-
-      toggle.addEventListener('click', (e)=>{
+      toggle.addEventListener('click', e=>{
         const btn = e.target.closest('button[data-mode]');
         if(!btn) return;
         setMode(btn.dataset.mode);
       });
-
-      setMode('monthly'); // default
+      setMode('monthly');
     })();
   </script>
 </body>
