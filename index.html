@@ -3,517 +3,373 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NISYS – Prețuri (Demo)</title>
+  <title>NISYS – Cloud, Web & Game Hosting</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: {
+              50: '#f6f7fb', 100: '#eef1f7', 200: '#e6eaf2'
+            },
+            amber: {
+              50:'#fff7ed',100:'#ffedd5',200:'#fed7aa',300:'#fdba74',400:'#fb923c',500:'#f59e0b',600:'#d97706',700:'#b45309'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .card{ @apply rounded-3xl border border-gray-200 bg-white shadow-sm; }
+    .btn{ @apply rounded-2xl px-5 py-3 font-medium; }
+    .btn-primary{ @apply bg-amber-600 hover:bg-amber-700 text-white; }
+    .btn-ghost{ @apply border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100; }
+    .menu-tile{ @apply card p-4 text-center cursor-pointer transition transform hover:scale-[1.03] hover:shadow-xl; }
+  </style>
 </head>
-<body class="min-h-screen bg-neutral-180 text-slate-900">
-  <!-- Header / Logo -->
-  <section class="flex flex-col items-center justify-center pt-16 pb-6">
-    <div class="text-center">
-      <img src="poza6.png?v=2" alt="NISYS Logo"
-           class="mx-auto w-56 md:w-64 mt-2 block"
-           style="filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));" />
-      <div class="mt-4 w-24 h-1 bg-amber-500 mx-auto rounded-full"></div>
-      <p class="mt-3 text-xs text-slate-500 max-w-2xl mx-auto">
-        * Aceasta este o pagină demo cu scop informativ; nu reprezintă o ofertă comercială oficială.
-      </p>
+<body class="min-h-screen bg-base-100 text-slate-900">
+  <!-- HEADER / LOGO -->
+  <header class="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="poza6.png" alt="NISYS" class="h-12 w-auto" />
+      <div class="text-xl font-semibold">NISYS</div>
+    </div>
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="#games" class="hover:text-amber-700">Găzduire jocuri</a>
+      <a href="#cloud" class="hover:text-amber-700">Cloud storage</a>
+      <a href="#web" class="hover:text-amber-700">Web hosting</a>
+      <a href="#contact" class="btn btn-ghost">Contact</a>
+    </nav>
+  </header>
+
+  <!-- RIGHT QUICK MENU -->
+  <aside class="hidden lg:block fixed right-6 top-28 z-20 w-64 space-y-4">
+    <a href="#games" class="menu-tile group">
+      <div class="text-amber-600 text-sm">Categoria</div>
+      <div class="text-lg font-semibold">Găzduire jocuri</div>
+      <div class="mt-2 rounded-2xl bg-amber-50 px-3 py-1 inline-block text-amber-800 text-xs group-hover:bg-amber-100">de la €4.83 / lună</div>
+    </a>
+    <a href="#cloud" class="menu-tile group">
+      <div class="text-amber-600 text-sm">Categoria</div>
+      <div class="text-lg font-semibold">Cloud storage</div>
+      <div class="mt-2 rounded-2xl bg-amber-50 px-3 py-1 inline-block text-amber-800 text-xs group-hover:bg-amber-100">planuri persoană & business</div>
+    </a>
+    <a href="#web" class="menu-tile group">
+      <div class="text-amber-600 text-sm">Categoria</div>
+      <div class="text-lg font-semibold">Web hosting</div>
+      <div class="mt-2 rounded-2xl bg-amber-50 px-3 py-1 inline-block text-amber-800 text-xs group-hover:bg-amber-100">SSL inclus, backup</div>
+    </a>
+  </aside>
+
+  <!-- HERO -->
+  <section class="max-w-7xl mx-auto px-4 pt-4 pb-8">
+    <div class="grid lg:grid-cols-[1fr,280px] gap-8 items-center">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 text-amber-800 px-3 py-1 text-xs">NISYS – în România</span>
+        <h1 class="mt-4 text-4xl md:text-5xl font-semibold leading-tight">Prețuri simple. Securitate serioasă. <span class="text-slate-500">Suport local.</span></h1>
+        <p class="mt-4 text-slate-600">Alege categoria de mai jos: găzduire jocuri, cloud storage sau web hosting. Fiecare secțiune are planurile ei dedicate (am separat Cloud de Web, cum ai cerut).</p>
+      </div>
+      <div class="lg:hidden">
+        <div class="grid grid-cols-3 gap-3">
+          <a href="#games" class="menu-tile"><div class="font-semibold">Jocuri</div></a>
+          <a href="#cloud" class="menu-tile"><div class="font-semibold">Cloud</div></a>
+          <a href="#web" class="menu-tile"><div class="font-semibold">Web</div></a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Hero (centrat) -->
-  <section class="max-w-7xl mx-auto px-4 pt-4 pb-10">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 text-amber-800 px-3 py-1 text-xs">
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"></rect><rect x="2" y="14" width="20" height="8" rx="2"></rect><path d="M6 6h.01M6 18h.01"/></svg>
-        NISYS Cloud – Stocare în România
-      </span>
-
-      <h1 class="mt-4 text-4xl md:text-5xl font-semibold leading-tight">
-        Prețuri simple. Securitate serioasă. <span class="text-slate-500">Suport local.</span>
-      </h1>
-
-      <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
-        Alege pachetul potrivit pentru afacerea ta și adaugă opțiuni inteligente pentru securitate și eficiență.
-        Totul rulat pe infrastructura NISYS din Mălureni, Argeș.
-      </p>
+  <!-- GAMES LANDING -->
+  <section id="games" class="max-w-7xl mx-auto px-4 py-10">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-semibold">Găzduire jocuri</h2>
+      <div class="text-sm text-slate-500">Prețuri începând de la <span class="font-semibold">€4.83 / lună</span></div>
     </div>
+    <p class="mt-2 text-slate-600">Alege jocul, apoi configurează RAM, nume server, port și DNS opțional.</p>
 
-    <!-- Card facturare (centru) -->
-    <div class="relative mt-10">
-      <div class="max-w-xl mx-auto rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6">
-        <div class="flex items-center justify-between">
-          <div class="text-sm text-slate-600">Facturare</div>
-          <div id="billing-toggle" class="flex items-center gap-2 text-xs">
-            <button data-mode="monthly"
-              class="px-2 py-1 rounded border border-neutral-200 bg-neutral-50 font-semibold hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-amber-400">
-              Lunar
-            </button>
-            <span class="text-slate-400">/</span>
-            <button data-mode="annual"
-              class="px-2 py-1 rounded border border-neutral-200 bg-neutral-50 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-amber-400">
-              Anual <span class="ml-1 rounded bg-amber-100 px-1.5 py-0.5 text-amber-700">-15%</span>
-            </button>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <!-- Minecraft card -->
+      <article class="card overflow-hidden group cursor-pointer" data-game="minecraft">
+        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476f?q=80&w=1200&auto=format&fit=crop" class="h-40 w-full object-cover group-hover:scale-105 transition" alt="Minecraft"/>
+        <div class="p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold">Minecraft</h3>
+            <span class="rounded-full bg-amber-100 text-amber-800 text-xs px-2 py-1">de la €4.83</span>
+          </div>
+          <p class="mt-2 text-slate-600">Java / Paper / Spigot, backup zilnic, protecție DDoS.</p>
+          <button class="btn btn-primary mt-4 w-full" onclick="openConfigurator('minecraft')">Configurează</button>
+        </div>
+      </article>
+      
+      <!-- CS2 card -->
+      <article class="card overflow-hidden group cursor-pointer" data-game="cs2">
+        <img src="https://images.unsplash.com/photo-1558980664-10eaaffc9de3?q=80&w=1200&auto=format&fit=crop" class="h-40 w-full object-cover group-hover:scale-105 transition" alt="CS2"/>
+        <div class="p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold">Counter‑Strike 2</h3>
+            <span class="rounded-full bg-amber-100 text-amber-800 text-xs px-2 py-1">de la €10.32</span>
+          </div>
+          <p class="mt-2 text-slate-600">Server tickrate 128, FastDL, console RCON.</p>
+          <button class="btn btn-primary mt-4 w-full" onclick="openConfigurator('cs2')">Configurează</button>
+        </div>
+      </article>
+
+      <!-- Rust card -->
+      <article class="card overflow-hidden group cursor-pointer" data-game="rust">
+        <img src="https://images.unsplash.com/photo-1615986201257-99c87c2f6a31?q=80&w=1200&auto=format&fit=crop" class="h-40 w-full object-cover group-hover:scale-105 transition" alt="Rust"/>
+        <div class="p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold">Rust</h3>
+            <span class="rounded-full bg-amber-100 text-amber-800 text-xs px-2 py-1">de la €9.90</span>
+          </div>
+          <p class="mt-2 text-slate-600">Oxide/uMod, auto‑wipe, instant setup.</p>
+          <button class="btn btn-primary mt-4 w-full" onclick="openConfigurator('rust')">Configurează</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- GAME CONFIGURATOR (single, dynamic) -->
+  <section id="game-config" class="hidden max-w-7xl mx-auto px-4 pb-12">
+    <div class="card p-6 lg:p-8">
+      <div class="flex items-start gap-6 flex-col lg:flex-row">
+        <img id="gc-cover" class="rounded-2xl w-full lg:w-1/2 object-cover max-h-72" alt="cover"/>
+        <div class="flex-1 w-full">
+          <div class="flex items-center justify-between">
+            <h3 id="gc-title" class="text-2xl font-semibold">Minecraft</h3>
+            <button class="text-sm underline text-slate-500 hover:text-slate-800" onclick="closeConfigurator()">Înapoi la jocuri</button>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 mt-5">
+            <label class="text-sm">Nume server
+              <input id="gc-name" class="mt-1 w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="ex: NisysMC" />
+            </label>
+            <label class="text-sm">RAM
+              <select id="gc-ram" class="mt-1 w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400"></select>
+            </label>
+            <label class="text-sm">Port
+              <select id="gc-port" class="mt-1 w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400">
+                <option value="random" selected>Aleator (gratuit)</option>
+                <option value="reserved">Port specific (ex. 25565) +€3/lună</option>
+              </select>
+            </label>
+            <label class="text-sm">Facturare
+              <select id="gc-billing" class="mt-1 w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400">
+                <option value="monthly">Lunar</option>
+                <option value="annual">Anual (‑15%)</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="mt-4 flex items-center gap-3">
+            <input id="gc-dns" type="checkbox" class="h-4 w-4" />
+            <label for="gc-dns" class="text-sm">DNS personalizat (ex. play.nisys.ro) +€2/lună</label>
+          </div>
+
+          <div class="mt-6 flex items-center justify-between">
+            <div class="text-sm text-slate-600">Preț total: <span id="gc-price" class="text-2xl font-bold text-amber-700">€0.00</span> <span id="gc-cycle" class="text-slate-500">/lună</span></div>
+            <button class="btn btn-primary" onclick="alert('Demo: plasare comandă')">Comandă</button>
           </div>
         </div>
-        <div class="mt-6 grid grid-cols-2 gap-4 text-sm text-slate-600">
-          <div class="flex items-center gap-2">🔒 Scanare antivirus opțional</div>
-          <div class="flex items-center gap-2">💾 Optimizare fișiere opțional</div>
-          <div class="flex items-center gap-2">🛡️ 2FA + criptare AES-256/TLS 1.3</div>
-          <div class="flex items-center gap-2">⚡ Bandă redundantă (Digi + Orange)</div>
+      </div>
+
+      <div class="mt-6 text-sm text-slate-600" id="gc-notes"></div>
+    </div>
+  </section>
+
+  <!-- CLOUD STORAGE (separate) -->
+  <section id="cloud" class="max-w-7xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-semibold text-center">Planuri Stocare Date Cloud</h2>
+    <p class="mt-2 text-slate-600 text-center">Aceasta este categoria Cloud (Web a fost separată mai jos).</p>
+    <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      <!-- 4 planuri scurte (identice cu cele din versiunea ta) -->
+      <div class="card p-6 flex flex-col">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Basic</h3>
+          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span>
         </div>
+        <div class="mt-3 text-4xl font-bold">€3<span class="text-base font-normal text-slate-500">/lună</span></div>
+        <ul class="mt-4 list-disc list-inside text-sm text-slate-600 space-y-1 flex-1">
+          <li>50 GB spațiu</li><li>1 utilizator</li><li>Trafic 50 GB/lună</li><li>Backups zilnice</li>
+        </ul>
+        <a class="btn btn-primary mt-5 w-full text-center" href="#contact">Trial gratuit</a>
+      </div>
+      <div class="card p-6 flex flex-col ring-2 ring-amber-500/40">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Pro</h3>
+          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Recomandat</span>
+        </div>
+        <div class="mt-3 text-4xl font-bold">€10<span class="text-base font-normal text-slate-500">/lună</span></div>
+        <ul class="mt-4 list-disc list-inside text-sm text-slate-600 space-y-1 flex-1">
+          <li>200 GB spațiu</li><li>până la 5 utilizatori</li><li>Share securizat</li><li>Suport prioritar 24h</li>
+        </ul>
+        <a class="btn btn-primary mt-5 w-full text-center" href="#contact">Trial gratuit</a>
+      </div>
+      <div class="card p-6 flex flex-col">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Business</h3>
+          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Companie</span>
+        </div>
+        <div class="mt-3 text-4xl font-bold">€40<span class="text-base font-normal text-slate-500">/lună</span></div>
+        <ul class="mt-4 list-disc list-inside text-sm text-slate-600 space-y-1 flex-1">
+          <li>1 TB spațiu</li><li>Utilizatori nelimitați</li><li>Versionare + recovery</li>
+        </ul>
+        <a class="btn btn-primary mt-5 w-full text-center" href="#contact">Trial gratuit</a>
+      </div>
+      <div class="card p-6 flex flex-col">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Enterprise</h3>
+          <span class="text-xs rounded-full bg-gray-200 px-2 py-1 text-slate-700">Personalizat</span>
+        </div>
+        <div class="mt-3 text-4xl font-bold">€200<span class="text-base font-normal text-slate-500">/lună</span></div>
+        <ul class="mt-4 list-disc list-inside text-sm text-slate-600 space-y-1 flex-1">
+          <li>&gt;5 TB spațiu</li><li>API + automatizări</li><li>Backup geo opțional</li>
+        </ul>
+        <a class="btn btn-primary mt-5 w-full text-center" href="#contact">Cere ofertă</a>
       </div>
     </div>
   </section>
 
-  <!-- Planuri Cloud -->
-  <section id="plans" class="max-w-7xl mx-auto px-4 pb-8">
-    <h2 class="text-2xl font-semibold mb-4 text-center">Planuri Stocare Date Cloud</h2>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-      <!-- Basic -->
-      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col
-                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold group-hover:text-amber-900">Basic</h3>
-          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
-          €<span class="price" data-monthly="3">3</span><span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
-          <span class="ml-2 text-lg text-slate-400 line-through old-price" data-old="3.5">€3.5</span>
-        </div>
-        <div class="text-xs text-slate-500 mt-1 subline group-hover:text-amber-800">facturat lunar</div>
-        <p class="mt-3 text-slate-600 group-hover:text-amber-900">Pentru utilizatori individuali și freelanceri.</p>
-        <div class="mt-4 text-sm text-slate-700">Spațiu: <span class="font-medium">50 GB</span></div>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
-          <li>1 utilizator</li>
-          <li>Trafic inclus: 50 GB/lună</li>
-          <li>Suport prin tichete (48h)</li>
-          <li>Stocare în România (GDPR)</li>
-          <li>Nextcloud web + mobile + desktop</li>
-          <li>Transfer criptat TLS 1.3</li>
-          <li>Autentificare 2FA</li>
-          <li>Backups zilnice (snapshot)</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Începe trial gratuit</a>
-        </div>
-      </div>
-
-      <!-- Pro -->
-      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40
-                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold group-hover:text-amber-900">Pro</h3>
-          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
-          €<span class="price" data-monthly="10">10</span><span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
-          <span class="ml-2 text-lg text-slate-400 line-through old-price" data-old="12">€12</span>
-        </div>
-        <div class="text-xs text-slate-500 mt-1 subline group-hover:text-amber-800">facturat lunar</div>
-        <p class="mt-3 text-slate-600 group-hover:text-amber-900">Cel mai bun raport preț/beneficiu pentru IMM-uri.</p>
-        <div class="mt-4 text-sm text-slate-700">Spațiu: <span class="font-medium">200 GB</span></div>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
-          <li>Până la 5 utilizatori</li>
-          <li>Trafic inclus: 200 GB/lună</li>
-          <li>Share securizat cu link + parolă</li>
-          <li>Suport prioritar (24h)</li>
-          <li>Stocare în România (GDPR), Nextcloud, TLS 1.3, 2FA, Backups</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Începe trial gratuit</a>
-        </div>
-      </div>
-
-      <!-- Business -->
-      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col
-                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold group-hover:text-amber-900">Business</h3>
-          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
-          €<span class="price" data-monthly="40">40</span><span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
-          <span class="ml-2 text-lg text-slate-400 line-through old-price" data-old="50">€50</span>
-        </div>
-        <div class="text-xs text-slate-500 mt-1 subline group-hover:text-amber-800">facturat lunar</div>
-        <p class="mt-3 text-slate-600 group-hover:text-amber-900">Pentru firme cu procese critice și audit.</p>
-        <div class="mt-4 text-sm text-slate-700">Spațiu: <span class="font-medium">1 TB</span></div>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
-          <li>Utilizatori nelimitați</li>
-          <li>Trafic inclus: 1 TB/lună</li>
-          <li>Versionare + recovery</li>
-          <li>Integrare LDAP/SSO la cerere</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Începe trial gratuit</a>
-        </div>
-      </div>
-
-      <!-- Enterprise -->
-      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col
-                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold group-hover:text-amber-900">Enterprise</h3>
-          <span class="text-xs rounded-full bg-neutral-200 px-2 py-1 text-slate-700">Personalizat</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
-          €<span class="price" data-monthly="200">200</span><span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
-          <span class="ml-2 text-lg text-slate-400 line-through old-price" data-old="220">€220</span>
-        </div>
-        <div class="text-xs text-slate-500 mt-1 subline group-hover:text-amber-800">facturat lunar</div>
-        <p class="mt-3 text-slate-600 group-hover:text-amber-900">Soluții la cheie, multi-site și API.</p>
-        <div class="mt-4 text-sm text-slate-700">Spațiu: <span class="font-medium">&gt; 5 TB</span></div>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
-          <li>Arhitectură dedicată / on-prem</li>
-          <li>SLA opțional (prin contract)</li>
-          <li>Backup geografic opțional</li>
-          <li>Integrare API + automatizări</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Cere ofertă</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Planuri Găzduire Web -->
+  <!-- WEB HOSTING (separate) -->
   <section id="web" class="max-w-7xl mx-auto px-4 py-10">
     <h2 class="text-2xl font-semibold text-center">Planuri Găzduire Web</h2>
-    <p class="mt-2 text-slate-600 max-w-2xl mx-auto text-center">SSL inclus, backup zilnic, panou de control prietenos.</p>
-
+    <p class="mt-2 text-slate-600 text-center">SSL inclus, backup zilnic, panou prietenos.</p>
     <div class="mt-6 grid md:grid-cols-3 gap-6 items-stretch">
-      <!-- Web Basic -->
-      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col
-                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold group-hover:text-amber-900">Web Basic</h3>
-          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
-          €2<span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
-          <span class="ml-2 text-lg text-slate-400 line-through">€3</span>
-        </div>
-        <p class="mt-3 text-slate-600 group-hover:text-amber-900">1 site, 1 GB spațiu, 1 DB, trafic 50 GB/lună.</p>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
-          <li>Panou de administrare</li>
-          <li>PHP 8.x + cache</li>
-          <li>Backup zilnic</li>
-          <li>E-mail 1 căsuță</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Comandă Web Basic</a>
-        </div>
+      <div class="card p-6 flex flex-col">
+        <div class="flex items-center justify-between"><h3 class="text-xl font-semibold">Web Basic</h3><span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span></div>
+        <div class="mt-3 text-4xl font-bold">€2<span class="text-base font-normal text-slate-500">/lună</span></div>
+        <p class="mt-2 text-slate-600">1 site, 1 GB, 1 DB, trafic 50 GB.</p>
+        <a class="btn btn-primary mt-auto" href="#contact">Comandă</a>
       </div>
-
-      <!-- Web Pro -->
-      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40
-                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold group-hover:text-amber-900">Web Pro</h3>
-          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
-          €5<span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
-          <span class="ml-2 text-lg text-slate-400 line-through">€7</span>
-        </div>
-        <p class="mt-3 text-slate-600 group-hover:text-amber-900">3 site-uri, 5 GB spațiu, 3 DB, trafic 200 GB/lună.</p>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
-          <li>Staging WordPress</li>
-          <li>Backups automate + restore</li>
-          <li>E-mail până la 5 căsuțe</li>
-          <li>Protecție WAF de bază</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Comandă Web Pro</a>
-        </div>
+      <div class="card p-6 ring-2 ring-amber-500/40 flex flex-col">
+        <div class="flex items-center justify-between"><h3 class="text-xl font-semibold">Web Pro</h3><span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Recomandat</span></div>
+        <div class="mt-3 text-4xl font-bold">€5<span class="text-base font-normal text-slate-500">/lună</span></div>
+        <p class="mt-2 text-slate-600">3 site‑uri, 5 GB, staging WP, 200 GB trafic.</p>
+        <a class="btn btn-primary mt-auto" href="#contact">Comandă</a>
       </div>
-
-      <!-- Web Business -->
-      <div class="group rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 h-full flex flex-col
-                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold group-hover:text-amber-900">Web Business</h3>
-          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
-          €9<span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
-          <span class="ml-2 text-lg text-slate-400 line-through">€12</span>
-        </div>
-        <p class="mt-3 text-slate-600 group-hover:text-amber-900">Site-uri nelimitate*, 10 GB spațiu, trafic 500 GB/lună.</p>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
-          <li>WAF + rate-limit</li>
-          <li>Monitorizare uptime</li>
-          <li>E-mail până la 10 căsuțe</li>
-          <li>Asistență în ore de program</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Comandă Web Business</a>
-        </div>
-      </div>
-    </div>
-    <p class="mt-3 text-xs text-slate-500 text-center">* în limite rezonabile de resurse (CPU/RAM/procese) pentru planul ales.</p>
-  </section>
-
-  <!-- Bundle -->
-  <section id="bundles" class="max-w-7xl mx-auto px-4 py-10">
-    <h2 class="text-2xl font-semibold text-center">Bundle (Cloud + Web)</h2>
-    <p class="mt-2 text-slate-600 max-w-2xl mx-auto text-center">Combină planuri Cloud + Web la preț mai bun. Ultimul pachet include și opțiunile suplimentare.</p>
-
-    <div class="mt-6 grid md:grid-cols-3 gap-6 items-stretch">
-      <div class="rounded-3xl border border-amber-300 bg-amber-50 shadow-sm p-6 h-full flex flex-col transition transform hover:scale-[1.02] hover:shadow-xl">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold text-amber-900">Start Bundle</h3>
-          <span class="text-xs rounded-full bg-white/70 px-2 py-1 text-amber-800 border border-amber-200">promo</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold text-amber-900">
-          €7<span class="text-base font-normal">/lună</span>
-          <span class="ml-2 text-lg text-amber-900/70 line-through">€9</span>
-        </div>
-        <p class="mt-3 text-amber-900">Cloud Basic (50 GB) + Web Basic (1 site).</p>
-        <ul class="mt-4 space-y-2 text-sm text-amber-900 list-disc list-inside flex-1">
-          <li>SSL, backup, Nextcloud</li>
-          <li>Trafic cloud 50 GB/lună</li>
-          <li>Trafic web 50 GB/lună</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Ia Start Bundle</a>
-        </div>
-      </div>
-
-      <div class="rounded-3xl border border-amber-300 bg-amber-100 shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40 transition transform hover:scale-[1.02] hover:shadow-xl">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold text-amber-900">Grow Bundle</h3>
-          <span class="text-xs rounded-full bg-white px-2 py-1 text-amber-800 border border-amber-200">recomandat</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold text-amber-900">
-          €11<span class="text-base font-normal">/lună</span>
-          <span class="ml-2 text-lg text-amber-900/70 line-through">€15</span>
-        </div>
-        <p class="mt-3 text-amber-900">Cloud Pro (200 GB) + Web Pro (3 site-uri).</p>
-        <ul class="mt-4 space-y-2 text-sm text-amber-900 list-disc list-inside flex-1">
-          <li>Share securizat, 2FA, backup</li>
-          <li>Staging WordPress</li>
-          <li>Trafic cloud 200 GB/lună</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Ia Grow Bundle</a>
-        </div>
-      </div>
-
-      <div class="rounded-3xl border border-amber-400 bg-gradient-to-b from-amber-100 to-amber-50 shadow p-6 h-full flex flex-col transition transform hover:scale-[1.02] hover:shadow-xl">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold text-amber-900">Max Bundle</h3>
-          <span class="text-xs rounded-full bg-amber-500 text-white px-2 py-1">cel mai complet</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold text-amber-900">
-          €24<span class="text-base font-normal">/lună</span>
-          <span class="ml-2 text-lg text-amber-900/70 line-through">€29</span>
-        </div>
-        <p class="mt-3 text-amber-900">Cloud Enterprise (≥5 TB) + Web Business + toate opțiunile suplimentare.</p>
-        <ul class="mt-4 space-y-2 text-sm text-amber-900 list-disc list-inside flex-1">
-          <li>Scanare antivirus + Optimizare fișiere</li>
-          <li>Alertă acces IP necunoscut (la lansare)</li>
-          <li>Backup geo opțional</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Ia Max Bundle</a>
-        </div>
+      <div class="card p-6 flex flex-col">
+        <div class="flex items-center justify-between"><h3 class="text-xl font-semibold">Web Business</h3><span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Scalabil</span></div>
+        <div class="mt-3 text-4xl font-bold">€9<span class="text-base font-normal text-slate-500">/lună</span></div>
+        <p class="mt-2 text-slate-600">Site‑uri nelimitate*, 10 GB, 500 GB trafic.</p>
+        <a class="btn btn-primary mt-auto" href="#contact">Comandă</a>
       </div>
     </div>
   </section>
 
-  <!-- Domenii -->
-  <section id="domains" class="max-w-7xl mx-auto px-4 py-10">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl font-semibold">Înregistrează-ți domeniul</h2>
-      <p class="mt-3 text-slate-600">
-        Alege numele perfect pentru brandul tău și pornește online în câteva minute.
-        Înregistrare și transfer pentru .ro, .com, .eu, .net, DNS gestionat, protecție WHOIS (unde e disponibil),
-        și <strong>DNSSEC</strong> pentru securitate sporită. Te ajutăm gratuit cu configurarea recordurilor pentru site și e-mail.
-      </p>
-    </div>
-
-    <div class="max-w-2xl mx-auto mt-6 rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6">
-      <form class="flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); alert('Demo: acesta este daor de decor pentr demo.');">
-        <input type="text" placeholder="ex: nume-firma.ro"
-               class="flex-1 rounded-2xl border border-neutral-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400"
-               aria-label="Numele domeniului"/>
-        <button type="submit" class="rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium">
-          Verifică disponibilitatea
-        </button>
-      </form>
-
-      <div class="mt-4 grid sm:grid-cols-3 gap-3 text-sm text-slate-600">
-        <div class="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-2 text-amber-900">.ro – înregistrare & transfer</div>
-        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-2">.com • .net • .org • .eu</div>
-        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-2">WHOIS Privacy* • DNSSEC</div>
-      </div>
-
-      <p class="mt-3 text-xs text-slate-500">* Protecția WHOIS este disponibilă pentru anumite TLD-uri (nu pentru .ro).</p>
-    </div>
-
-    <div class="text-center mt-4">
-      <a href="#contact" class="inline-flex items-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium">
-        Cere-ne o ofertă pentru domeniul tău
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- Opțiuni suplimentare -->
-  <section class="max-w-7xl mx-auto px-4 py-10">
-    <div class="flex items-center gap-3">
-      <h2 class="text-2xl font-semibold">Opțiuni suplimentare</h2>
-      <span class="text-xs rounded-full bg-amber-100 text-amber-700 px-2 py-1">recomandat</span>
-    </div>
-    <p class="mt-2 text-slate-600 max-w-2xl">Adaugă securitate și economie de spațiu fără griji. Poți activa oricând din panou.</p>
-    <div class="mt-6 grid md:grid-cols-3 gap-6">
-      <div class="rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 flex flex-col">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-3"><span class="inline-flex h-5 w-5 items-center justify-center">🛡️</span><h3 class="text-lg font-semibold">Scanare antivirus la upload</h3></div>
-          <div class="text-right"><div class="text-2xl font-bold">€3.5<span class="text-sm font-normal text-slate-500">/lună</span></div><div class="text-xs text-slate-500">facturat lunar</div></div>
-        </div>
-        <p class="mt-3 text-slate-600">Detecție la încărcare + scanare periodică și alerte.</p>
-        <div class="mt-auto pt-5"><a class="w-full inline-flex justify-center rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a></div>
-      </div>
-
-      <div class="rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 flex flex-col">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-3"><span class="inline-flex h-5 w-5 items-center justify-center">💾</span><h3 class="text-lg font-semibold">Optimizare inteligentă fișiere</h3></div>
-          <div class="text-right"><div class="text-2xl font-bold">€5.5<span class="text-sm font-normal text-slate-500">/lună</span></div><div class="text-xs text-slate-500">facturat lunar</div></div>
-        </div>
-        <p class="mt-3 text-slate-600">WebP/AVIF, compresie PDF, deduplicare blocuri fără pierderi vizibile.</p>
-        <div class="mt-auto pt-5"><a class="w-full inline-flex justify-center rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium" href="#contact">Activează add-on</a></div>
-      </div>
-
-      <div class="rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-6 flex flex-col">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-3"><span class="inline-flex h-5 w-5 items-center justify-center">🔔</span><h3 class="text-lg font-semibold">Alertă acces din IP necunoscut</h3></div>
-          <span class="text-xs rounded-full bg-neutral-200 px-2 py-1 text-slate-700">în curând</span>
-        </div>
-        <p class="mt-3 text-slate-600">Când cineva accesează contul de pe un IP nou, proprietarul primește alertă + jurnal: fișiere vizualizate, modificări, încărcări și descărcări.</p>
-        <div class="mt-auto pt-5"><button disabled class="w-full inline-flex justify-center rounded-2xl border border-neutral-200 bg-neutral-100 text-slate-400 px-5 py-3 font-medium cursor-not-allowed">Disponibil în curând</button></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Compară pachetele -->
-  <section class="max-w-7xl mx-auto px-4 py-10">
-    <h2 class="text-2xl font-semibold text-center">Compară pachetele</h2>
-    <div class="mt-4 overflow-x-auto rounded-2xl border border-neutral-200">
-      <table class="min-w-full text-sm">
-        <thead class="bg-neutral-100 text-slate-700">
-          <tr>
-            <th class="px-4 py-3 text-left">Funcție</th>
-            <th class="px-4 py-3 text-left">Basic</th>
-            <th class="px-4 py-3 text-left">Pro</th>
-            <th class="px-4 py-3 text-left">Business</th>
-            <th class="px-4 py-3 text-left">Enterprise</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-neutral-200">
-          <tr class="text-slate-600">
-            <td class="px-4 py-3">Spațiu inclus</td>
-            <td class="px-4 py-3">50 GB</td>
-            <td class="px-4 py-3">200 GB</td>
-            <td class="px-4 py-3">1 TB</td>
-            <td class="px-4 py-3">&gt; 5 TB</td>
-          </tr>
-          <tr class="text-slate-600">
-            <td class="px-4 py-3">Utilizatori</td>
-            <td class="px-4 py-3">1</td>
-            <td class="px-4 py-3">până la 5</td>
-            <td class="px-4 py-3">nelimitați</td>
-            <td class="px-4 py-3">nelimitați</td>
-          </tr>
-          <tr class="text-slate-600">
-            <td class="px-4 py-3">Trafic inclus</td>
-            <td class="px-4 py-3">50 GB/lună</td>
-            <td class="px-4 py-3">200 GB/lună</td>
-            <td class="px-4 py-3">1 TB/lună</td>
-            <td class="px-4 py-3">personalizat</td>
-          </tr>
-          <tr class="text-slate-600">
-            <td class="px-4 py-3">Backups zilnice</td>
-            <td class="px-4 py-3">✓</td>
-            <td class="px-4 py-3">✓</td>
-            <td class="px-4 py-3">✓ (recuperare inclusă)</td>
-            <td class="px-4 py-3">✓ (geo opțional)</td>
-          </tr>
-          <tr class="text-slate-600">
-            <td class="px-4 py-3">Suport</td>
-            <td class="px-4 py-3">tichete (48h)</td>
-            <td class="px-4 py-3">prioritar (24h)</td>
-            <td class="px-4 py-3">tichete (ore de program)</td>
-            <td class="px-4 py-3">manager dedicat</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="mt-3 text-xs text-slate-500 text-center">* Trafic suplimentar (egress) peste limita inclusă: €0.04–€0.08 / GB. Migrarea inițială poate fi gratuită în campanii promo.</p>
-  </section>
-
-  <!-- CTA -->
-  <section id="contact" class="max-w-7xl mx-auto px-4 pb-16">
-    <div class="rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+  <!-- CTA / CONTACT -->
+  <section id="contact" class="max-w-7xl mx-auto px-4 py-14">
+    <div class="card p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
-        <h3 class="text-2xl font-semibold">Gata să începi cu NISYS Cloud?</h3>
-        <p class="text-slate-600 mt-2">Creează un cont, pornește trialul Pro și adaugă add-on-urile dorite. Pentru &gt;5 TB, scrie-ne pentru ofertă dedicată.</p>
+        <h3 class="text-2xl font-semibold">Hai să pornim!</h3>
+        <p class="text-slate-600 mt-2">Scrie‑ne pentru ofertă personalizată sau creează cont și începe trialul Pro.</p>
       </div>
       <div class="flex items-center gap-3">
-        <a class="rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#">Creează cont</a>
-        <a class="rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium inline-flex items-center gap-2" href="mailto:contact@nisys.ro">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-          Contactează-ne
-        </a>
+        <a class="btn btn-primary" href="#">Creează cont</a>
+        <a class="btn btn-ghost" href="mailto:contact@nisys.ro">contact@nisys.ro</a>
       </div>
     </div>
-    <p class="text-xs text-slate-500 mt-3 text-center">* Prețurile promo se aplică pe 6 luni de la activare, apoi revin la standard.</p>
   </section>
 
-  <!-- Toggle lunar/anual -->
   <script>
-    (function(){
-      const discount = 0.15;
-      const prices = Array.from(document.querySelectorAll('#plans .price'));
-      const sublines = Array.from(document.querySelectorAll('#plans .subline'));
-      const olds = Array.from(document.querySelectorAll('#plans .old-price'));
-      const toggle = document.getElementById('billing-toggle');
-
-      function euro(n){ return n.toLocaleString('ro-RO', {maximumFractionDigits:2}); }
-      function setMode(mode){
-        const isAnnual = mode === 'annual';
-        prices.forEach((span, i)=>{
-          const monthly = parseFloat(span.dataset.monthly || '0');
-          const val = isAnnual ? Math.round(monthly*(1-discount)*100)/100 : monthly;
-          span.textContent = euro(val);
-          if (olds[i]) {
-            const oldBase = parseFloat(olds[i].dataset.old || olds[i].textContent.replace(/[€\s]/g,''));
-            olds[i].textContent = '€' + euro(isAnnual ? Math.round(oldBase*(1-discount)*100)/100 : oldBase);
-          }
-        });
-        sublines.forEach((el, idx)=>{
-          const monthly = parseFloat(prices[idx].dataset.monthly||'0');
-          const annual = Math.round(monthly*(1-discount)*100)/100;
-          el.textContent = isAnnual
-            ? `facturat anual (${euro(monthly)} → ${euro(annual)}/lună)`
-            : 'facturat lunar';
-        });
-        toggle.querySelectorAll('button').forEach(b=>{
-          const active = b.dataset.mode===mode;
-          b.classList.toggle('font-semibold', active);
-          b.classList.toggle('border-amber-300', active);
-          b.classList.toggle('bg-amber-50', active);
-        });
+    // --- Game presets ---
+    const GAMES = {
+      minecraft: {
+        title: 'Minecraft',
+        cover: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476f?q=80&w=1200&auto=format&fit=crop',
+        base: 4.83,
+        ramOptions: [
+          {label:'4 GB / ~35 jucători', price:4.83},
+          {label:'6 GB / ~50 jucători', price:6.90},
+          {label:'8 GB / ~70 jucători', price:8.90},
+          {label:'12 GB / ~100 jucători', price:12.90}
+        ],
+        notes: 'Paper/Spigot, backup zilnic, DDoS, instalare instant. Port aleator gratuit; port 25565 costă +€3/lună.'
+      },
+      cs2: {
+        title: 'Counter‑Strike 2',
+        cover: 'https://images.unsplash.com/photo-1558980664-10eaaffc9de3?q=80&w=1200&auto=format&fit=crop',
+        base: 10.32,
+        ramOptions: [
+          {label:'2 vCPU / 8 GB RAM', price:10.32},
+          {label:'3 vCPU / 12 GB RAM', price:14.50},
+          {label:'4 vCPU / 16 GB RAM', price:18.90}
+        ],
+        notes: 'Tick 128, FastDL, RCON. Port dedicat +€3/lună.'
+      },
+      rust: {
+        title: 'Rust',
+        cover: 'https://images.unsplash.com/photo-1615986201257-99c87c2f6a31?q=80&w=1200&auto=format&fit=crop',
+        base: 9.90,
+        ramOptions: [
+          {label:'3 vCPU / 10 GB RAM', price:9.90},
+          {label:'4 vCPU / 14 GB RAM', price:13.90},
+          {label:'6 vCPU / 20 GB RAM', price:19.90}
+        ],
+        notes: 'uMod/Oxide, auto‑wipe, map seeds. Port dedicat +€3/lună.'
       }
-      toggle.addEventListener('click', e=>{
-        const btn = e.target.closest('button[data-mode]');
-        if(!btn) return;
-        setMode(btn.dataset.mode);
+    };
+
+    const elCfg = {
+      wrap: document.getElementById('game-config'),
+      title: document.getElementById('gc-title'),
+      cover: document.getElementById('gc-cover'),
+      ram: document.getElementById('gc-ram'),
+      port: document.getElementById('gc-port'),
+      dns: document.getElementById('gc-dns'),
+      billing: document.getElementById('gc-billing'),
+      price: document.getElementById('gc-price'),
+      cycle: document.getElementById('gc-cycle'),
+      notes: document.getElementById('gc-notes')
+    };
+
+    let currentGame = null;
+
+    function euro(n){ return '€' + n.toFixed(2); }
+
+    function openConfigurator(key){
+      currentGame = GAMES[key];
+      elCfg.title.textContent = currentGame.title;
+      elCfg.cover.src = currentGame.cover;
+      elCfg.notes.textContent = currentGame.notes;
+
+      elCfg.ram.innerHTML = '';
+      currentGame.ramOptions.forEach((opt,i)=>{
+        const o = document.createElement('option');
+        o.value = i; o.textContent = opt.label + ' – ' + euro(opt.price) + '/lună';
+        elCfg.ram.appendChild(o);
       });
-      setMode('monthly');
-    })();
+      elCfg.ram.value = 0;
+      elCfg.port.value = 'random';
+      elCfg.dns.checked = false;
+      elCfg.billing.value = 'monthly';
+      updatePrice();
+      elCfg.wrap.classList.remove('hidden');
+      window.location.hash = '#games';
+      elCfg.wrap.scrollIntoView({behavior:'smooth'});
+    }
+
+    function closeConfigurator(){
+      elCfg.wrap.classList.add('hidden');
+      currentGame = null;
+    }
+
+    function updatePrice(){
+      if(!currentGame) return;
+      let price = currentGame.ramOptions[+elCfg.ram.value].price;
+      if(elCfg.port.value === 'reserved') price += 3;
+      if(elCfg.dns.checked) price += 2;
+      const annual = elCfg.billing.value === 'annual';
+      const final = annual ? price * 0.85 : price; // 15% reducere la anual
+      elCfg.price.textContent = euro(final);
+      elCfg.cycle.textContent = annual ? '/lună (plată anuală ‑15%)' : '/lună';
+    }
+
+    ['gc-ram','gc-port','gc-dns','gc-billing'].forEach(id=>{
+      const el = document.getElementById(id);
+      el.addEventListener('change', updatePrice);
+    });
   </script>
 </body>
 </html>
