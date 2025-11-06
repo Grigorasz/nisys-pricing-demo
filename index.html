@@ -1,59 +1,205 @@
-<!-- ====== 3 carduri aliniate pe un rând ====== -->
-<main class="max-w-6xl mx-auto px-4 pb-16">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <!-- Cloud -->
-    <a href="cloud.html"
-       class="group rounded-2xl border border-amber-300 bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:scale-[1.01] hover:bg-amber-100">
-      <div class="flex items-center justify-between">
-        <h3 class="text-xl font-semibold">Cloud storage</h3>
-        <span class="text-amber-700 text-sm font-semibold group-hover:text-orange-600">de la 2,99€ / lună*</span>
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NISYS — Acasă</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/img/poza6.png">
+  <style>
+    .glass { background: rgba(255,255,255,0.35); border:1px solid rgba(255,255,255,.35); backdrop-filter: blur(14px); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header glass -->
+  <header class="sticky top-0 z-40 glass">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/img/poza6.png" alt="NISYS" class="h-10 w-10 rounded-full">
+        <span class="font-semibold tracking-tight">NISYS</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="index.html" class="hover:text-amber-600">Acasă</a>
+        <a href="cloud.html" class="hover:text-amber-600">Cloud storage</a>
+        <a href="web.html" class="hover:text-amber-600">Web hosting</a>
+        <a class="text-gray-400 pointer-events-none">Găzduire jocuri</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/40">☰</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/40">
+      <div class="max-w-6xl mx-auto px-4 py-2 flex flex-col gap-2">
+        <a href="index.html" class="py-2">Acasă</a>
+        <a href="cloud.html" class="py-2">Cloud storage</a>
+        <a href="web.html" class="py-2">Web hosting</a>
+        <span class="py-2 text-gray-400">Găzduire jocuri</span>
       </div>
-      <p class="mt-3 text-gray-700">
-        Abonament Basic cu securitate serioasă și backup zilnic criptat.
-      </p>
-      <!-- mai multe detalii la Cloud -->
-      <ul class="mt-3 text-sm text-gray-700 space-y-1">
-        <li>• 50–100 GB (scalabil până la TB)</li>
-        <li>• Scanare antivirus automată</li>
-        <li>• Linkuri securizate, 2FA, jurnal acces</li>
-        <li>• DDoS gratuit până la 2.5 Gbps</li>
-        <li>• Compresie AVIF/WebP pentru media</li>
-        <li>• Backup zilnic pe NAS separat (AES-256)</li>
-      </ul>
-      <div class="mt-5 h-28 rounded-xl bg-cover bg-center" style="background-image:url('/img/cloud-bg.jpg');"></div>
-    </a>
+    </div>
+  </header>
 
-    <!-- Web -->
-    <a href="web.html"
-       class="group rounded-2xl border border-amber-300 bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:scale-[1.01] hover:bg-amber-100">
-      <div class="flex items-center justify-between">
-        <h3 class="text-xl font-semibold">Web hosting</h3>
-        <span class="text-amber-700 text-sm font-semibold group-hover:text-orange-600">de la 1,99€ / lună*</span>
-      </div>
-      <p class="mt-3 text-gray-700">
-        Nginx + PHP + DB, SSL gratuit, protecție Cloudflare, uptime asistat de UPS & solar.
-      </p>
-      <ul class="mt-3 text-sm text-gray-700 space-y-1">
-        <li>• Migrare inițială inclusă</li>
-        <li>• DDoS gratuit până la 2.5 Gbps</li>
-      </ul>
-      <div class="mt-5 h-28 rounded-xl bg-cover bg-center" style="background-image:url('/img/web-bg.jpg');"></div>
-    </a>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 pt-14 pb-8 text-center">
+    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">
+      Pachete transparente de <span class="text-amber-600">cloud & hosting</span>
+    </h1>
+    <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+      Sigure, rapide și prietenoase cu energia — construite în inima României. DDoS gratuit până la 2.5 Gbps.
+    </p>
+  </section>
 
-    <!-- Gaming (hover FIX + imagine Minecraft centrată) -->
-    <a href="#"
-       class="group rounded-2xl border border-amber-300 bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:scale-[1.01] hover:bg-amber-100">
-      <div class="flex items-center justify-between">
-        <h3 class="text-xl font-semibold">Găzduire jocuri</h3>
-        <span class="text-amber-700 text-sm font-semibold group-hover:text-orange-600">Minecraft de la 3,99€ / lună*</span>
+  <!-- Carduri: pe un rând, hover = galben + preț portocaliu -->
+  <main class="max-w-6xl mx-auto px-4 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Cloud -->
+      <a href="cloud.html"
+         class="group rounded-2xl border border-amber-300 bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:scale-[1.01] hover:bg-amber-100">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Cloud storage</h3>
+          <span class="text-amber-700 text-sm font-semibold group-hover:text-orange-600">de la 2,99€ / lună*</span>
+        </div>
+        <p class="mt-3 text-gray-700">Basic cu securitate serioasă și backup criptat.</p>
+        <ul class="mt-3 text-sm text-gray-700 space-y-1">
+          <li>• 50–100 GB (scalabil până la TB)</li>
+          <li>• Scanare antivirus automată</li>
+          <li>• Linkuri securizate, 2FA, jurnal acces</li>
+          <li>• Compresie AVIF/WebP pentru media</li>
+          <li>• Backup zilnic pe NAS separat (AES-256)</li>
+          <li>• DDoS gratuit până la 2.5 Gbps</li>
+        </ul>
+        <div class="mt-5 h-28 rounded-xl bg-cover bg-center" style="background-image:url('/img/cloud-bg.jpg');"></div>
+      </a>
+
+      <!-- Web -->
+      <a href="web.html"
+         class="group rounded-2xl border border-amber-300 bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:scale-[1.01] hover:bg-amber-100">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Web hosting</h3>
+          <span class="text-amber-700 text-sm font-semibold group-hover:text-orange-600">de la 1,99€ / lună*</span>
+        </div>
+        <p class="mt-3 text-gray-700">Nginx + PHP + DB, SSL gratuit, protecție Cloudflare, uptime asistat de UPS & solar.</p>
+        <ul class="mt-3 text-sm text-gray-700 space-y-1">
+          <li>• Migrare inițială inclusă</li>
+          <li>• DDoS gratuit până la 2.5 Gbps</li>
+        </ul>
+        <div class="mt-5 h-28 rounded-xl bg-cover bg-center" style="background-image:url('/img/web-bg.jpg');"></div>
+      </a>
+
+      <!-- Gaming -->
+      <a href="#"
+         class="group rounded-2xl border border-amber-300 bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:scale-[1.01] hover:bg-amber-100">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Găzduire jocuri</h3>
+          <span class="text-amber-700 text-sm font-semibold group-hover:text-orange-600">Minecraft de la 3,99€ / lună*</span>
+        </div>
+        <p class="mt-3 text-gray-700">
+          Liber arbitru la configurări. Fără sharing de resurse între clienți — nu preiei lag când alt server are probleme.
+        </p>
+        <ul class="mt-3 text-sm text-gray-700 space-y-1">
+          <li>• RAM dedicați, backup zilnic</li>
+          <li>• Protecție DDoS până la 2.5 Gbps</li>
+        </ul>
+        <div class="mt-5 h-28 rounded-xl bg-cover bg-center" style="background-image:url('/img/minecraft.jpg');"></div>
+      </a>
+    </div>
+
+    <!-- Descrieri „în trepte” + încheiere pe mijloc -->
+    <section class="mt-16 flex flex-col gap-6">
+      <article class="self-start max-w-3xl rounded-2xl bg-white border border-gray-200 p-6">
+        <h4 class="text-lg font-semibold">Cine suntem</h4>
+        <p class="mt-2 text-gray-700">NISYS este un proiect din inima României, construit pe infrastructură proprie pentru servicii accesibile și transparente.</p>
+      </article>
+
+      <article class="self-center max-w-3xl rounded-2xl bg-white border border-gray-200 p-6">
+        <h4 class="text-lg font-semibold">Securitate by design</h4>
+        <ul class="mt-2 space-y-2 text-gray-700">
+          <li>• Scanare antivirus, 2FA și jurnalizare acces</li>
+          <li>• Backup zilnic criptat (AES-256) pe NAS separat</li>
+          <li>• DDoS gratuit până la 2.5 Gbps; datele rămân în UE (GDPR)</li>
+        </ul>
+      </article>
+
+      <article class="self-end max-w-3xl rounded-2xl bg-white border border-gray-200 p-6">
+        <h4 class="text-lg font-semibold">Energie verde & uptime</h4>
+        <ul class="mt-2 space-y-2 text-gray-700">
+          <li>• Integrare panouri solare + UPS</li>
+          <li>• Dual-WAN pentru redundanță</li>
+          <li>• Monitorizare Netdata și alerte proactive</li>
+        </ul>
+      </article>
+
+      <article class="self-center max-w-3xl rounded-2xl border-2 border-amber-400 bg-white p-6 text-center">
+        <h4 class="text-lg font-semibold">Viteză & stocare</h4>
+        <p class="mt-2 text-gray-700">Backbone intern 10 Gbps, RAID redundant (HDD + SSD cache) și optimizări AVIF/WebP pentru media.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-center md:text-left flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="/img/poza6.png" class="h-8 w-8 rounded-full" alt="">
+        <span class="font-semibold">NISYS</span>
       </div>
-      <p class="mt-3 text-gray-700">
-        „Liber arbitru” la configurări. Fără sharing de resurse între clienți — eliminăm lag-ul încrucișat când alt server are probleme.
-      </p>
-      <ul class="mt-3 text-sm text-gray-700 space-y-1">
-        <li>• RAM dedicați, backup zilnic</li>
-        <li>• Protecție DDoS până la 2.5 Gbps</li>
-      </ul>
-      <div class="mt-5 h-28 rounded-xl bg-cover bg-center" style="background-image:url('minecraft.jpg');"></div>
-    </a>
+      <div class="text-sm text-gray-600">
+        <p>*Prețuri orientative — vor fi confirmate la lansare.</p>
+        <p class="mt-1">© <span id="y"></span> NISYS SRL. Toate drepturile rezervate.</p>
+      </div>
+      <div class="text-sm">
+        <a href="index.html" class="mr-4 hover:text-amber-600">Acasă</a>
+        <a href="cloud.html" class="mr-4 hover:text-amber-600">Cloud</a>
+        <a href="web.html" class="hover:text-amber-600">Web</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Widget „Pune o întrebare” — DREAPTA jos -->
+  <button id="qBtn" class="fixed right-4 bottom-4 z-50 rounded-full px-4 py-3 text-sm font-medium text-white bg-amber-600 shadow-lg hover:bg-amber-700">
+    Pune o întrebare
+  </button>
+
+  <div id="qBox" class="fixed right-4 bottom-20 z-50 w-[92vw] max-w-sm hidden">
+    <form id="qForm" class="rounded-2xl bg-white shadow-xl border border-gray-200 p-4">
+      <div class="flex items-center justify-between mb-2">
+        <h5 class="font-semibold">Întrebare rapidă</h5>
+        <button type="button" id="qClose" class="text-gray-500 hover:text-gray-700">✕</button>
+      </div>
+      <label class="block text-sm">Adresa de email</label>
+      <input required type="email" class="mt-1 w-full rounded-lg border border-gray-300 p-2" placeholder="ex: nume@email.com">
+
+      <label class="block text-sm mt-3">Numele</label>
+      <input required type="text" class="mt-1 w-full rounded-lg border border-gray-300 p-2" placeholder="Numele tău">
+
+      <label class="block text-sm mt-3">Întrebarea ta</label>
+      <textarea required rows="4" class="mt-1 w-full rounded-lg border border-gray-300 p-2" placeholder="Scrie aici..."></textarea>
+
+      <button class="mt-4 w-full rounded-lg bg-amber-600 text-white py-2 font-medium hover:bg-amber-700">Trimite</button>
+    </form>
+
+    <div id="qThanks" class="hidden rounded-2xl bg-amber-100 border border-amber-300 p-4 text-amber-900">
+      <strong>Mulțumim!</strong> Am primit întrebarea ta. Revenim cât mai rapid cu un răspuns.
+    </div>
   </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const btn = document.getElementById('menuBtn');
+    const mm  = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => mm.classList.toggle('hidden'));
+
+    const qBtn   = document.getElementById('qBtn');
+    const qBox   = document.getElementById('qBox');
+    const qForm  = document.getElementById('qForm');
+    const qClose = document.getElementById('qClose');
+    const qThanks= document.getElementById('qThanks');
+
+    qBtn.addEventListener('click', ()=> qBox.classList.remove('hidden'));
+    qClose.addEventListener('click',()=> qBox.classList.add('hidden'));
+    qForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      qForm.classList.add('hidden');
+      qThanks.classList.remove('hidden');
+      setTimeout(()=>{ qBox.classList.add('hidden'); qThanks.classList.add('hidden'); qForm.reset(); qForm.classList.remove('hidden');}, 3500);
+    });
+  </script>
+</body>
+</html>
