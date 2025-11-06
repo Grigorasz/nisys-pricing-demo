@@ -1,20 +1,197 @@
-<!doctype html><html lang="ro"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>NISYS – Acasă</title>
-<link rel="stylesheet" href="styles.css"/>
-<link rel="preconnect" href="https://cdn.tailwindcss.com"><script src="https://cdn.tailwindcss.com"></script>
-</head><body>
-<div class="sidebar">
-  <a class="tile" href="games.html">Găzduire jocuri</a>
-  <a class="tile" href="cloud.html">Cloud storage</a>
-  <a class="tile" href="web.html">Web hosting</a>
-</div>
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NISYS — Acasă</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/img/poza6.png">
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- ====== Header (copiază identic și în celelalte pagini) ====== -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/img/poza6.png" alt="NISYS" class="h-10 w-10 rounded-full">
+        <span class="font-semibold tracking-tight">NISYS</span>
+      </a>
 
-<section class="container" style="padding:64px 16px 32px">
-  <div style="text-align:center">
-    <img src="poza6.png" alt="NISYS" style="width:140px;height:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.25))"/>
-    <h1 class="text-4xl md:text-5xl font-semibold mt-6">Bun venit la NISYS</h1>
-    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Alege serviciul dorit din dreapta: găzduire jocuri, cloud storage sau web hosting.</p>
-  </div>
-</section>
-</body></html>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="index.html" class="text-gray-700 hover:text-amber-600">Acasă</a>
+        <a href="cloud.html" class="text-gray-700 hover:text-amber-600">Cloud storage</a>
+        <a href="web.html" class="text-gray-700 hover:text-amber-600">Web hosting</a>
+        <a href="#" class="text-gray-400 pointer-events-none" title="În curând">Găzduire jocuri</a>
+      </nav>
+
+      <!-- burger pentru mobil -->
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-200">
+        <span class="sr-only">Deschide meniul</span>
+        ☰
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200">
+      <div class="max-w-6xl mx-auto px-4 py-2 flex flex-col gap-2">
+        <a href="index.html" class="py-2">Acasă</a>
+        <a href="cloud.html" class="py-2">Cloud storage</a>
+        <a href="web.html" class="py-2">Web hosting</a>
+        <span class="py-2 text-gray-400">Găzduire jocuri — în curând</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== Hero centrat ====== -->
+  <section class="max-w-6xl mx-auto px-4 pt-14 pb-10 text-center">
+    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">
+      Bun venit la <span class="text-amber-600">NISYS</span>
+    </h1>
+    <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+      Stocare în cloud, găzduire web și (în curând) servere de jocuri — rapide, sigure și prietenoase cu energia.
+    </p>
+  </section>
+
+  <!-- ====== 3 carduri mari pe mijloc (categoriile) ====== -->
+  <main class="max-w-6xl mx-auto px-4 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Cloud -->
+      <a href="cloud.html"
+         class="group rounded-2xl border border-amber-300 bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:scale-[1.01]">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Cloud storage</h3>
+          <span class="text-amber-700 text-sm font-medium">de la 2,99€ / lună*</span>
+        </div>
+        <p class="mt-3 text-gray-600">
+          Planul Basic — perfect pentru documente și fotografii. Scanare antivirus automată și compresie inteligentă.
+        </p>
+        <ul class="mt-4 space-y-1 text-sm text-gray-700">
+          <li>• 50–100 GB spațiu (scalabil)</li>
+          <li>• Link-uri securizate, 2FA, GDPR</li>
+          <li>• Backup zilnic criptat</li>
+        </ul>
+        <div class="mt-5 inline-flex items-center gap-2 text-amber-700 group-hover:gap-3 transition-all">
+          Vezi planurile <span>→</span>
+        </div>
+      </a>
+
+      <!-- Web hosting -->
+      <a href="web.html"
+         class="group rounded-2xl border border-amber-300 bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:scale-[1.01]">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Web hosting</h3>
+          <span class="text-amber-700 text-sm font-medium">de la 1,99€ / lună*</span>
+        </div>
+        <p class="mt-3 text-gray-600">
+          Gazduire rapidă cu SSL gratuit și protecție Cloudflare anti-DDoS.
+        </p>
+        <ul class="mt-4 space-y-1 text-sm text-gray-700">
+          <li>• Nginx + PHP + DB gestionate</li>
+          <li>• Uptime asistat de UPS + solar</li>
+          <li>• Migrare inițială inclusă</li>
+        </ul>
+        <div class="mt-5 inline-flex items-center gap-2 text-amber-700 group-hover:gap-3 transition-all">
+          Vezi pachetele <span>→</span>
+        </div>
+      </a>
+
+      <!-- Jocuri (teaser) -->
+      <div
+         class="rounded-2xl border border-amber-200 bg-white p-6 opacity-90">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Găzduire jocuri</h3>
+          <span class="text-gray-400 text-sm font-medium">în curând</span>
+        </div>
+        <p class="mt-3 text-gray-600">
+          Începem cu servere <strong>Minecraft</strong> gata de joc — de la <em>3,99€ / lună*</em>, RAM dedicați și
+          protecție DDoS la nivel de rețea.
+        </p>
+        <ul class="mt-4 space-y-1 text-sm text-gray-700">
+          <li>• Panou simplu, backup zilnic</li>
+          <li>• Modpack-uri populare</li>
+          <li>• Latență mică pe conexiuni locale</li>
+        </ul>
+        <div class="mt-5 inline-flex items-center gap-2 text-gray-400">
+          Disponibil anul 2 <span>⏳</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== Secțiuni info (scop/cine suntem/securitate/energie/viteză) ====== -->
+    <section class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <article class="rounded-2xl bg-white border border-gray-200 p-6">
+        <h4 class="text-lg font-semibold">Cine suntem</h4>
+        <p class="mt-2 text-gray-700">
+          NISYS este un proiect românesc din Argeș, construit pe infrastructură proprie (Dell + UNAS) cu
+          obiectivul de a oferi servicii accesibile și transparente pentru IMM-uri, școli și utilizatori individuali.
+        </p>
+      </article>
+
+      <article class="rounded-2xl bg-white border border-gray-200 p-6">
+        <h4 class="text-lg font-semibold">De ce NISYS</h4>
+        <ul class="mt-2 space-y-2 text-gray-700">
+          <li>• Suport prietenos și clar, fără „taxe surpriză”.</li>
+          <li>• Planuri simple, opționale add-on-uri AI (upscaling media) pe viitor.</li>
+          <li>• Accent pe confidențialitate și controlul datelor tale.</li>
+        </ul>
+      </article>
+
+      <article class="rounded-2xl bg-white border border-gray-200 p-6">
+        <h4 class="text-lg font-semibold">Securitate by design</h4>
+        <ul class="mt-2 space-y-2 text-gray-700">
+          <li>• Scanare antivirus automată pentru fișierele încărcate.</li>
+          <li>• Autentificare cu 2FA, politici de parole și jurnalizare acces.</li>
+          <li>• Backup zilnic criptat (AES-256) pe NAS separat, recuperare versiuni.</li>
+          <li>• Conformitate GDPR: datele rămân în UE.</li>
+        </ul>
+      </article>
+
+      <article class="rounded-2xl bg-white border border-gray-200 p-6">
+        <h4 class="text-lg font-semibold">Energie verde & uptime</h4>
+        <ul class="mt-2 space-y-2 text-gray-700">
+          <li>• Integrare cu panouri solare și UPS pentru continuitate.</li>
+          <li>• Dual-WAN (Digi + Orange) pentru redundanță la internet.</li>
+          <li>• Monitorizare Netdata și alerte pro-active.</li>
+        </ul>
+      </article>
+
+      <article class="rounded-2xl bg-white border border-gray-200 p-6 md:col-span-2">
+        <h4 class="text-lg font-semibold">Viteză & stocare</h4>
+        <p class="mt-2 text-gray-700">
+          Backbone intern la 10&nbsp;Gbps cu stocare pe RAID-uri redundante (HDD + SSD cache). Compresie AVIF/WebP
+          pentru media și optimizări la încărcare — totul pentru o experiență rapidă.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <!-- ====== Footer (copiază identic și în celelalte pagini) ====== -->
+  <footer class="border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-center md:text-left">
+      <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <img src="/img/poza6.png" class="h-8 w-8 rounded-full" alt="">
+          <span class="font-semibold">NISYS</span>
+        </div>
+        <div class="text-sm text-gray-600">
+          <p>*Prețuri orientative — pot fi ajustate la lansare.</p>
+          <p class="mt-1">© <span id="y"></span> NISYS SRL. Toate drepturile rezervate.</p>
+        </div>
+        <div class="text-sm">
+          <a href="index.html" class="mr-4 hover:text-amber-600">Acasă</a>
+          <a href="cloud.html" class="mr-4 hover:text-amber-600">Cloud</a>
+          <a href="web.html" class="hover:text-amber-600">Web</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // an: pentru footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // mobil: deschide/închide meniul
+    const btn = document.getElementById('menuBtn');
+    const mm  = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => mm.classList.toggle('hidden'));
+  </script>
+</body>
+</html>
