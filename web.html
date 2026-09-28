@@ -1,327 +1,454 @@
-import Link from 'next/link'
-import { Shield, Zap, HardDrive, RefreshCw, Monitor, Users } from 'lucide-react'
-import PricingCard from '@/components/PricingCard'
-import FeatureCard from '@/components/FeatureCard'
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NISYS – Găzduire Jocuri (Minecraft & CS2)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="poza6.png">
+  <style>
+    .glass { background: rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,.5); backdrop-filter: blur(14px); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+    .card-expand { transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out; }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50 text-slate-900">
+  <!-- Header glass -->
+  <header class="sticky top-0 z-40 glass">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="poza6.png" alt="NISYS" class="h-10 w-10 rounded-full">
+        <span class="font-semibold tracking-tight text-xl">NISYS</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 font-medium">
+        <a href="index.html" class="hover:text-amber-600">Acasă</a>
+        <a href="cloud.html" class="hover:text-amber-600">Cloud storage</a>
+        <a href="web.html" class="hover:text-amber-600">Web hosting</a>
+        <a href="gaming.html" class="text-amber-700 font-semibold">Găzduire jocuri</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#games" class="rounded-xl bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 text-sm font-medium transition">Alege jocul</a>
+      </div>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-gray-300">☰</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white/95">
+      <div class="max-w-6xl mx-auto px-4 py-2 flex flex-col gap-2">
+        <a href="index.html" class="py-2 hover:text-amber-600">Acasă</a>
+        <a href="cloud.html" class="py-2 hover:text-amber-600">Cloud storage</a>
+        <a href="web.html" class="py-2 hover:text-amber-600">Web hosting</a>
+        <a href="gaming.html" class="py-2 text-amber-700 font-semibold">Găzduire jocuri</a>
+      </div>
+    </div>
+  </header>
 
-const minecraftPlans = [
-  {
-    name: 'Trial Minecraft',
-    price: 'Gratuit',
-    period: '24 ore',
-    highlight: 'Fără card de credit',
-    features: [
-      '1 GB RAM dedicat',
-      'Server Minecraft Java/Bedrock',
-      'DDoS Protection inclus',
-      'Panou Multicraft',
-      'Backup manual',
-      'Suport prin email',
-    ],
-    isPopular: false,
-    ctaText: 'Încearcă gratuit →',
-    ctaHref: '#signup',
-  },
-  {
-    name: 'Starter',
-    price: '3.99€',
-    period: 'lună',
-    highlight: 'Recomandat pentru prieteni',
-    features: [
-      '2 GB RAM dedicat',
-      '20 sloturi jucători',
-      'Server Minecraft Java/Bedrock',
-      'DDoS Protection inclus',
-      'Panou Multicraft complet',
-      'Backup zilnic automat',
-      'Moduri & Plugin-uri',
-      'Suport prioritar',
-    ],
-    isPopular: true,
-    ctaText: 'Alege Starter →',
-    ctaHref: '#signup',
-  },
-  {
-    name: 'Standard',
-    price: '6.99€',
-    period: 'lună',
-    highlight: 'Comunități mari',
-    features: [
-      '4 GB RAM dedicat',
-      '50 sloturi jucători',
-      'Server Minecraft Java/Bedrock',
-      'DDoS Protection inclus',
-      'Panou Multicraft complet',
-      'Backup zilnic automat',
-      'Moduri & Plugin-uri nelimitate',
-      'SSD NVMe storage',
-      'Suport dedicat 24/7',
-    ],
-    isPopular: false,
-    ctaText: 'Alege Standard →',
-    ctaHref: '#signup',
-  },
-]
+  <!-- Hero -->
+  <section class="max-w-7xl mx-auto px-4 pt-10 pb-6 text-center">
+    <div class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 text-amber-800 px-4 py-1.5 text-xs font-semibold mb-3">
+      ⚡ Procesoare AMD Ryzen &bull; Protecție Anti-DDoS UDP &bull; Fără Resurse Partajate
+    </div>
+    <h1 class="mt-2 text-4xl md:text-5xl font-extrabold leading-tight">
+      Găzduire jocuri <span class="text-amber-600">fără compromisuri</span>.
+    </h1>
+    <p class="mt-4 text-slate-600 max-w-2xl mx-auto text-base">
+      Apasă pe jocul preferat pentru a-ți personaliza resursele în timp real: RAM, nuclee CPU și port dedicat. Fără lag, fără sharing de resurse.
+    </p>
+  </section>
 
-const cs2Plans = [
-  {
-    name: 'Trial CS2',
-    price: 'Gratuit',
-    period: '24 ore',
-    highlight: 'Fără card de credit',
-    features: [
-      '10 sloturi jucători',
-      'Server CS2 dedicat',
-      'DDoS Protection inclus',
-      'RCON access',
-      'Tickrate 64',
-      'Suport prin email',
-    ],
-    isPopular: false,
-    ctaText: 'Încearcă gratuit →',
-    ctaHref: '#signup',
-  },
-  {
-    name: 'Standard CS2',
-    price: '4.99€',
-    period: 'lună',
-    highlight: 'Cel mai popular',
-    features: [
-      '10 sloturi jucători',
-      'Server CS2 dedicat',
-      'DDoS Protection inclus',
-      'RCON + SourceMod',
-      'Tickrate 128',
-      'Backup zilnic automat',
-      'Panel grafic Pterodactyl',
-      'Suport prioritar 24/7',
-    ],
-    isPopular: true,
-    ctaText: 'Alege Standard →',
-    ctaHref: '#signup',
-  },
-]
+  <!-- Game Cards (Minecraft & CS2) -->
+  <main id="games" class="max-w-6xl mx-auto px-4 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      
+      <!-- ==================== CARD 1: MINECRAFT ==================== -->
+      <div class="rounded-3xl border-2 border-amber-300 bg-white shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
+        <!-- Partea Superioara a Cardului (Clickable / Header) -->
+        <div class="p-6 cursor-pointer select-none" onclick="toggleConfig('mc')">
+          <div class="relative h-48 rounded-2xl overflow-hidden mb-5 border border-amber-200">
+            <img src="minecraft2.png" alt="Minecraft Server" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+              <span class="text-white font-bold text-lg flex items-center gap-2">
+                🎮 Minecraft Java & Bedrock
+              </span>
+            </div>
+            <span class="absolute top-3 right-3 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+              Personalizabil
+            </span>
+          </div>
 
-const features = [
-  {
-    icon: <HardDrive className="h-6 w-6" />,
-    title: 'RAM Dedicat',
-    description: 'Fiecare server primește RAM dedicat, nu partajat. Performanță constantă fără vecini zgomotoși.',
-  },
-  {
-    icon: <Shield className="h-6 w-6" />,
-    title: 'DDoS Protection',
-    description: 'Protecție automată Cloudflare 2.5 Gbps. Serverul tău rămâne online chiar și sub atac.',
-  },
-  {
-    icon: <RefreshCw className="h-6 w-6" />,
-    title: 'Backup Zilnic',
-    description: 'Backup automat zilnic al întregii lumi / configurații. Restaurare cu un singur click.',
-  },
-  {
-    icon: <Monitor className="h-6 w-6" />,
-    title: 'Panel Grafic Profesional',
-    description: 'Multicraft pentru Minecraft și Pterodactyl pentru CS2. Controlezi totul din browser.',
-  },
-  {
-    icon: <Zap className="h-6 w-6" />,
-    title: 'Fără Sharing',
-    description: 'Resurse dedicate, nu partajate. CPU și RAM rezervate exclusiv serverului tău.',
-  },
-  {
-    icon: <Users className="h-6 w-6" />,
-    title: 'Suport Uman 24/7',
-    description: 'Echipă reală de suport tehnic, nu boți. Răspuns în maxim 2 ore pentru planurile plătite.',
-  },
-]
-
-export default function GamingPage() {
-  return (
-    <div className="bg-gray-50">
-      {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-amber-50 via-white to-gray-50 py-20 px-4">
-        <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-amber-200 opacity-30 blur-3xl" />
-        <div className="mx-auto max-w-4xl text-center relative">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-100 px-4 py-1.5 text-sm font-medium text-amber-700">
-            🎮 Minecraft & CS2 — Servere dedicate
-          </div>
-          <h1 className="mb-5 text-4xl font-extrabold text-gray-900 md:text-6xl">
-            Server-e de jocuri{' '}
-            <span className="text-amber-500">fără compromisuri</span>
-          </h1>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
-            Latență minimă în România, RAM dedicat, DDoS protection și panouri grafice profesionale.
-            Minecraft și CS2 la un click distanță.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="#minecraft"
-              className="rounded-xl bg-amber-500 px-8 py-4 font-bold text-white hover:bg-amber-600 transition-colors shadow-lg"
-            >
-              Minecraft →
-            </Link>
-            <Link
-              href="#cs2"
-              className="rounded-xl border-2 border-amber-400 px-8 py-4 font-bold text-amber-700 hover:bg-amber-50 transition-colors"
-            >
-              CS2 →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Game selector pills ── */}
-      <section className="py-10 px-4 bg-white border-b border-amber-100">
-        <div className="mx-auto max-w-4xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              {
-                emoji: '⛏️',
-                name: 'Minecraft',
-                desc: 'Java & Bedrock Edition',
-                detail: 'Multicraft Panel · Plugin-uri · Moduri',
-                href: '#minecraft',
-              },
-              {
-                emoji: '🔫',
-                name: 'Counter-Strike 2',
-                desc: 'Matchmaking privat & compétitiv',
-                detail: 'Pterodactyl Panel · SourceMod · 128 tick',
-                href: '#cs2',
-              },
-            ].map((game) => (
-              <a
-                key={game.name}
-                href={game.href}
-                className="group flex items-center gap-5 rounded-2xl border border-amber-300 bg-gray-50 p-6 hover:bg-amber-50 hover:border-amber-400 hover:-translate-y-0.5 transition-all shadow-sm"
-              >
-                <div className="text-5xl">{game.emoji}</div>
-                <div>
-                  <p className="font-bold text-gray-900 text-lg">{game.name}</p>
-                  <p className="text-amber-700 text-sm font-medium">{game.desc}</p>
-                  <p className="text-gray-500 text-xs mt-1">{game.detail}</p>
-                </div>
-                <div className="ml-auto text-amber-400 group-hover:translate-x-1 transition-transform text-xl">→</div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Minecraft Pricing ── */}
-      <section id="minecraft" className="py-20 px-4 bg-gray-50">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <div className="text-5xl mb-4">⛏️</div>
-            <h2 className="text-3xl font-extrabold text-gray-900 md:text-4xl">Minecraft Hosting</h2>
-            <p className="mt-3 text-gray-500">Java & Bedrock Edition · Multicraft Panel · România</p>
-            <p className="mt-1 text-xs text-gray-400">⚠️ Prețuri orientative</p>
-          </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-start">
-            {minecraftPlans.map((plan) => (
-              <PricingCard key={plan.name} {...plan} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CS2 Pricing ── */}
-      <section id="cs2" className="py-20 px-4 bg-white">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-12 text-center">
-            <div className="text-5xl mb-4">🔫</div>
-            <h2 className="text-3xl font-extrabold text-gray-900 md:text-4xl">Counter-Strike 2</h2>
-            <p className="mt-3 text-gray-500">Server dedicat · Pterodactyl Panel · 128 tickrate</p>
-            <p className="mt-1 text-xs text-gray-400">⚠️ Prețuri orientative</p>
-          </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 items-start max-w-2xl mx-auto">
-            {cs2Plans.map((plan) => (
-              <PricingCard key={plan.name} {...plan} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Features ── */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 md:text-4xl">
-              De ce NISYS Gaming?
-            </h2>
-            <p className="mt-3 text-gray-500">
-              Performanță reală pentru gameri reali
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((f, i) => (
-              <FeatureCard
-                key={f.title}
-                icon={f.icon}
-                title={f.title}
-                description={f.description}
-                highlight={i === 3} /* Panel highlight */
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Panel Preview ── */}
-      <section className="py-16 px-4 bg-white">
-        <div className="mx-auto max-w-5xl">
-          <div className="rounded-3xl border-2 border-amber-400 bg-gradient-to-br from-amber-50 to-orange-50 p-8 md:p-12 text-center">
-            <div className="text-5xl mb-4">🖥️</div>
-            <h3 className="text-2xl font-extrabold text-gray-900 mb-4">
-              Panouri grafice profesionale
-            </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Nu ai nevoie de cunoștințe tehnice. Gestionezi serverul tău prin interfețe moderne
-              și intuitive, accesibile din orice browser.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg mx-auto">
-              <div className="bg-white rounded-2xl border border-amber-200 p-6 shadow-sm">
-                <div className="text-4xl mb-3">⛏️</div>
-                <p className="font-bold text-gray-900">Multicraft</p>
-                <p className="text-sm text-gray-500 mt-1">
-                  Panou dedicat Minecraft. Start/stop server, consolă live, players online, backup cu un click.
-                </p>
-              </div>
-              <div className="bg-white rounded-2xl border border-amber-200 p-6 shadow-sm">
-                <div className="text-4xl mb-3">🔫</div>
-                <p className="font-bold text-gray-900">Pterodactyl</p>
-                <p className="text-sm text-gray-500 mt-1">
-                  Panou open-source de nivel enterprise. Ideal pentru CS2, suportă multiple servere din același cont.
-                </p>
-              </div>
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-2xl font-bold text-slate-800">Minecraft Server</h3>
+              <p class="text-sm text-slate-500 mt-1">Paper, Purpur, Forge, Fabric sau Vanilla</p>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-slate-400 block">Preț de la</span>
+              <span id="mc-summary-price" class="text-2xl font-black text-amber-600">€3.99</span>
+              <span class="text-xs text-slate-500">/lună</span>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ── CTA ── */}
-      <section id="signup" className="bg-gradient-to-r from-amber-500 to-orange-500 py-20 px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 text-3xl font-extrabold text-white md:text-4xl">
-            Serverul tău e la un click distanță
-          </h2>
-          <p className="mb-8 text-amber-100 text-lg">
-            Trial gratuit 24 ore. Fără card de credit. Activare în 2 minute.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              placeholder="adresa@email.ro"
-              className="flex-1 rounded-xl px-5 py-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/60"
-            />
-            <button
-              type="submit"
-              className="rounded-xl bg-white px-6 py-4 font-bold text-amber-600 hover:bg-amber-50 transition-colors whitespace-nowrap"
-            >
-              Încearcă gratuit →
-            </button>
-          </form>
+          <!-- Feature Bullets scurte -->
+          <ul class="mt-4 grid grid-cols-2 gap-2 text-xs text-slate-600">
+            <li class="flex items-center gap-1.5">✓ SSD NVMe ultra-rapid</li>
+            <li class="flex items-center gap-1.5">✓ Protecție DDoS 2.5 Gbps</li>
+            <li class="flex items-center gap-1.5">✓ Backup automat zilnic</li>
+            <li class="flex items-center gap-1.5">✓ Panou de control grafic</li>
+          </ul>
+
+          <!-- Buton expansiune -->
+          <button type="button" class="mt-5 w-full py-2.5 px-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 font-semibold text-sm flex items-center justify-center gap-2 hover:bg-amber-100 transition">
+            <span id="mc-btn-text">Configurează RAM & CPU</span>
+            <svg id="mc-arrow" class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
         </div>
-      </section>
+
+        <!-- MENIU EXTINDERE MINECRAFT (Configurator Dinamic) -->
+        <div id="mc-config" class="hidden border-t border-amber-100 bg-amber-50/50 p-6">
+          <h4 class="font-bold text-slate-800 text-base mb-4 flex items-center gap-2">
+            ⚙️ Personalizează specificațiile serverului
+          </h4>
+
+          <!-- 1. RAM Slider -->
+          <div class="mb-5">
+            <div class="flex justify-between items-center mb-1">
+              <label class="text-sm font-semibold text-slate-700">Memorie RAM dedicată:</label>
+              <span id="mc-ram-val" class="text-sm font-bold text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded-lg">4 GB RAM</span>
+            </div>
+            <input type="range" id="mc-ram" min="2" max="16" step="2" value="4" 
+                   class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-amber-600"
+                   oninput="calcMinecraft()">
+            <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+              <span>2 GB (Vanilla)</span>
+              <span>4 GB (Paper)</span>
+              <span>8 GB (Moduri)</span>
+              <span>16 GB (Heavy)</span>
+            </div>
+          </div>
+
+          <!-- 2. CPU Nuclee -->
+          <div class="mb-5">
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Putere Procesor (vCPU):</label>
+            <div class="grid grid-cols-3 gap-2">
+              <label class="cursor-pointer border border-gray-200 rounded-xl p-2.5 text-center bg-white hover:border-amber-400 transition" id="mc-cpu-1-label">
+                <input type="radio" name="mc-cpu" value="1" checked class="hidden" onchange="calcMinecraft()">
+                <div class="font-bold text-xs">1 Nucleu</div>
+                <div class="text-[10px] text-slate-500">Inclus</div>
+              </label>
+              <label class="cursor-pointer border border-gray-200 rounded-xl p-2.5 text-center bg-white hover:border-amber-400 transition" id="mc-cpu-2-label">
+                <input type="radio" name="mc-cpu" value="2" class="hidden" onchange="calcMinecraft()">
+                <div class="font-bold text-xs">2 Nuclee</div>
+                <div class="text-[10px] text-amber-700">+€2.00</div>
+              </label>
+              <label class="cursor-pointer border border-gray-200 rounded-xl p-2.5 text-center bg-white hover:border-amber-400 transition" id="mc-cpu-4-label">
+                <input type="radio" name="mc-cpu" value="4" class="hidden" onchange="calcMinecraft()">
+                <div class="font-bold text-xs">4 Nuclee</div>
+                <div class="text-[10px] text-amber-700">+€4.50</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- 3. Port & Adresă -->
+          <div class="mb-5">
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Tip Port & Conectare:</label>
+            <div class="space-y-2 text-xs">
+              <label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-gray-200 cursor-pointer hover:border-amber-300">
+                <input type="radio" name="mc-port" value="0" checked class="accent-amber-600" onchange="calcMinecraft()">
+                <div class="flex-1">
+                  <span class="font-semibold block text-slate-800">Port alocat dinamic (Gratuit)</span>
+                  <span class="text-slate-500 text-[11px]">Exemplu: mc.nisys.ro:25842</span>
+                </div>
+                <span class="font-bold text-slate-700">€0</span>
+              </label>
+
+              <label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-gray-200 cursor-pointer hover:border-amber-300">
+                <input type="radio" name="mc-port" value="1.5" class="accent-amber-600" onchange="calcMinecraft()">
+                <div class="flex-1">
+                  <span class="font-semibold block text-slate-800">Port dedicat 25565 (+€1.50)</span>
+                  <span class="text-slate-500 text-[11px]">Jucătorii se conectează direct pe <b>mc.nisys.ro</b> fără port!</span>
+                </div>
+                <span class="font-bold text-amber-700">+€1.50</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 4. Subdomeniu personalizat gratuit -->
+          <div class="mb-5">
+            <label class="block text-sm font-semibold text-slate-700 mb-1">Subdomeniu gratuit inclus:</label>
+            <div class="flex items-center">
+              <input type="text" placeholder="nume-server" class="w-full text-xs p-2 rounded-l-lg border border-gray-300 focus:outline-none focus:border-amber-500 bg-white">
+              <span class="bg-gray-100 text-slate-600 text-xs px-2.5 py-2 rounded-r-lg border border-l-0 border-gray-300 font-medium">.nisys.ro</span>
+            </div>
+          </div>
+
+          <!-- Total & CTA -->
+          <div class="pt-4 border-t border-amber-200 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-slate-500 block">Total estimat:</span>
+              <div class="text-2xl font-black text-amber-700">
+                €<span id="mc-total">5.99</span> <span class="text-xs font-normal text-slate-500">/lună</span>
+              </div>
+            </div>
+            <a href="index.html#qBtn" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 px-5 rounded-xl text-sm transition shadow-md">
+              Comandă Serverul
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== CARD 2: COUNTER-STRIKE 2 ==================== -->
+      <div class="rounded-3xl border-2 border-amber-300 bg-white shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
+        <!-- Partea Superioara a Cardului (Clickable / Header) -->
+        <div class="p-6 cursor-pointer select-none" onclick="toggleConfig('cs')">
+          <div class="relative h-48 rounded-2xl overflow-hidden mb-5 border border-amber-200">
+            <img src="cs.png" alt="Counter-Strike 2" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+              <span class="text-white font-bold text-lg flex items-center gap-2">
+                🎯 Counter-Strike 2 (CS2)
+              </span>
+            </div>
+            <span class="absolute top-3 right-3 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+              Personalizabil
+            </span>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-2xl font-bold text-slate-800">Counter-Strike 2</h3>
+              <p class="text-sm text-slate-500 mt-1">Sub-tick optimizat, Practice, Competitive, Retake</p>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-slate-400 block">Preț de la</span>
+              <span id="cs-summary-price" class="text-2xl font-black text-amber-600">€4.99</span>
+              <span class="text-xs text-slate-500">/lună</span>
+            </div>
+          </div>
+
+          <!-- Feature Bullets scurte -->
+          <ul class="mt-4 grid grid-cols-2 gap-2 text-xs text-slate-600">
+            <li class="flex items-center gap-1.5">✓ Protecție Anti-DDoS UDP</li>
+            <li class="flex items-center gap-1.5">✓ FastDL HTTP integrat</li>
+            <li class="flex items-center gap-1.5">✓ Actualizări automate Steam</li>
+            <li class="flex items-center gap-1.5">✓ Panou Pterodactyl inclus</li>
+          </ul>
+
+          <!-- Buton expansiune -->
+          <button type="button" class="mt-5 w-full py-2.5 px-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 font-semibold text-sm flex items-center justify-center gap-2 hover:bg-amber-100 transition">
+            <span id="cs-btn-text">Configurează Sloturi & Resurse</span>
+            <svg id="cs-arrow" class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- MENIU EXTINDERE CS2 (Configurator Dinamic) -->
+        <div id="cs-config" class="hidden border-t border-amber-100 bg-amber-50/50 p-6">
+          <h4 class="font-bold text-slate-800 text-base mb-4 flex items-center gap-2">
+            ⚙️ Personalizează specificațiile serverului CS2
+          </h4>
+
+          <!-- 1. Sloturi (Jucatori) -->
+          <div class="mb-5">
+            <div class="flex justify-between items-center mb-1">
+              <label class="text-sm font-semibold text-slate-700">Număr Sloturi (Jucători):</label>
+              <span id="cs-slots-val" class="text-sm font-bold text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded-lg">12 Sloturi</span>
+            </div>
+            <input type="range" id="cs-slots" min="10" max="32" step="2" value="12" 
+                   class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-amber-600"
+                   oninput="calcCS()">
+            <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+              <span>10 (5v5 Clasic)</span>
+              <span>16 (Casual)</span>
+              <span>24 (Deathmatch)</span>
+              <span>32 (Max)</span>
+            </div>
+          </div>
+
+          <!-- 2. Mod & Performanță -->
+          <div class="mb-5">
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Profil Performanță CPU:</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="cursor-pointer border border-gray-200 rounded-xl p-2.5 text-center bg-white hover:border-amber-400 transition" id="cs-cpu-std-label">
+                <input type="radio" name="cs-perf" value="0" checked class="hidden" onchange="calcCS()">
+                <div class="font-bold text-xs">Standard (Ryzen)</div>
+                <div class="text-[10px] text-slate-500">Inclus</div>
+              </label>
+              <label class="cursor-pointer border border-gray-200 rounded-xl p-2.5 text-center bg-white hover:border-amber-400 transition" id="cs-cpu-high-label">
+                <input type="radio" name="cs-perf" value="2.5" class="hidden" onchange="calcCS()">
+                <div class="font-bold text-xs">High-Priority Turbo</div>
+                <div class="text-[10px] text-amber-700">+€2.50</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- 3. Port & GOTV -->
+          <div class="mb-5">
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Opțiuni Conectivitate:</label>
+            <div class="space-y-2 text-xs">
+              <label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-gray-200 cursor-pointer hover:border-amber-300">
+                <input type="checkbox" id="cs-port" value="1.5" class="accent-amber-600 rounded" onchange="calcCS()">
+                <div class="flex-1">
+                  <span class="font-semibold block text-slate-800">Port dedicat implicit 27015 (+€1.50)</span>
+                  <span class="text-slate-500 text-[11px]">Serverul răspunde direct pe IP fără alt port adăugat</span>
+                </div>
+                <span class="font-bold text-amber-700">+€1.50</span>
+              </label>
+
+              <label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-gray-200">
+                <span class="text-green-600 font-bold">✓</span>
+                <div class="flex-1">
+                  <span class="font-semibold block text-slate-800">FastDL & SourceTV / Demo Recording</span>
+                  <span class="text-slate-500 text-[11px]">Inclus gratuit pe toate serverele CS2</span>
+                </div>
+                <span class="font-bold text-slate-600">Gratuit</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Total & CTA -->
+          <div class="pt-4 border-t border-amber-200 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-slate-500 block">Total estimat:</span>
+              <div class="text-2xl font-black text-amber-700">
+                €<span id="cs-total">4.99</span> <span class="text-xs font-normal text-slate-500">/lună</span>
+              </div>
+            </div>
+            <a href="index.html#qBtn" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 px-5 rounded-xl text-sm transition shadow-md">
+              Comandă Serverul
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
-  )
-}
+
+    <!-- Beneficii Tehnice Securitate -->
+    <section class="mt-16 bg-white rounded-3xl border border-gray-200 p-8 shadow-sm">
+      <h3 class="text-xl font-bold text-slate-800 text-center mb-6">De ce să alegi găzduirea de jocuri NISYS?</h3>
+      <div class="grid md:grid-cols-3 gap-6 text-sm text-slate-600">
+        <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200">
+          <div class="text-2xl mb-2">🛡️</div>
+          <h4 class="font-bold text-slate-800 text-base mb-1">Protecție Anti-DDoS Specializată</h4>
+          <p>Filtre L4/L7 pentru atacuri de tip UDP Flood, SYN Flood sau atacuri de bot-uri în Minecraft. Serverul tău nu cade în timpul meciurilor.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200">
+          <div class="text-2xl mb-2">⚙️</div>
+          <h4 class="font-bold text-slate-800 text-base mb-1">Fără Resurse Suprasubscrise</h4>
+          <p>Fiecare gigabyte de RAM și nucleu CPU alocat este 100% garantat pe procesorul AMD Ryzen. Nu împarți lagul cu alți utilizatori.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200">
+          <div class="text-2xl mb-2">💾</div>
+          <h4 class="font-bold text-slate-800 text-base mb-1">Backup Zilnic Automat</h4>
+          <p>Lumea ta de Minecraft și fișierele de configurare sunt salvate automat în fiecare noapte pe un mediu extern securizat.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-center md:text-left flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="poza6.png" class="h-8 w-8 rounded-full" alt="NISYS">
+        <span class="font-semibold text-lg">NISYS</span>
+      </div>
+      <div class="text-sm text-gray-600">
+        <p>© <span id="y"></span> NISYS. Servere de jocuri cu performanță garantată.</p>
+      </div>
+      <div class="text-sm font-medium">
+        <a href="index.html" class="mr-4 hover:text-amber-600">Acasă</a>
+        <a href="cloud.html" class="mr-4 hover:text-amber-600">Cloud</a>
+        <a href="web.html" class="mr-4 hover:text-amber-600">Web</a>
+        <a href="gaming.html" class="text-amber-700 font-semibold">Jocuri</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripturi Interactivitate si Calculatoare de Pret -->
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const btn = document.getElementById('menuBtn');
+    const mm  = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => mm.classList.toggle('hidden'));
+
+    // Toggle Configurator Card
+    function toggleConfig(game) {
+      const configDiv = document.getElementById(`${game}-config`);
+      const arrow = document.getElementById(`${game}-arrow`);
+      const btnText = document.getElementById(`${game}-btn-text`);
+      
+      const isHidden = configDiv.classList.contains('hidden');
+      if (isHidden) {
+        configDiv.classList.remove('hidden');
+        arrow.classList.add('rotate-180');
+        btnText.textContent = 'Ascunde configuratorul';
+      } else {
+        configDiv.classList.add('hidden');
+        arrow.classList.remove('rotate-180');
+        btnText.textContent = game === 'mc' ? 'Configurează RAM & CPU' : 'Configurează Sloturi & Resurse';
+      }
+    }
+
+    // Calcul Minecraft
+    function calcMinecraft() {
+      const ram = parseInt(document.getElementById('mc-ram').value);
+      document.getElementById('mc-ram-val').textContent = `${ram} GB RAM`;
+
+      // Pret de baza in functie de RAM: 2GB = €3.99, 4GB = €5.99, 6GB = €8.99, 8GB = €11.99, 12GB = €16.99, 16GB = €21.99
+      let ramPrice = 3.99;
+      if (ram === 4) ramPrice = 5.99;
+      else if (ram === 6) ramPrice = 8.99;
+      else if (ram === 8) ramPrice = 11.99;
+      else if (ram === 12) ramPrice = 16.99;
+      else if (ram === 16) ramPrice = 21.99;
+
+      // CPU adaugat
+      const cpuRadio = document.querySelector('input[name="mc-cpu"]:checked');
+      const cpuVal = cpuRadio ? parseInt(cpuRadio.value) : 1;
+      let cpuPrice = 0;
+      if (cpuVal === 2) cpuPrice = 2.00;
+      else if (cpuVal === 4) cpuPrice = 4.50;
+
+      // Highlight CPU labels
+      document.getElementById('mc-cpu-1-label').className = cpuVal === 1 ? 'cursor-pointer border-2 border-amber-500 rounded-xl p-2.5 text-center bg-amber-50' : 'cursor-pointer border border-gray-200 rounded-xl p-2.5 text-center bg-white';
+      document.getElementById('mc-cpu-2-label').className = cpuVal === 2 ? 'cursor-pointer border-2 border-amber-500 rounded-xl p-2.5 text-center bg-amber-50' : 'cursor-pointer border border-gray-200 rounded-xl p-2.5 text-center bg-white';
+      document.getElementById('mc-cpu-4-label').className = cpuVal === 4 ? 'cursor-pointer border-2 border-amber-500 rounded-xl p-2.5 text-center bg-amber-50' : 'cursor-pointer border border-gray-200 rounded-xl p-2.5 text-center bg-white';
+
+      // Port dedicat
+      const portRadio = document.querySelector('input[name="mc-port"]:checked');
+      const portPrice = portRadio ? parseFloat(portRadio.value) : 0;
+
+      const total = (ramPrice + cpuPrice + portPrice).toFixed(2);
+      document.getElementById('mc-total').textContent = total;
+      document.getElementById('mc-summary-price').textContent = `€${total}`;
+    }
+
+    // Calcul CS2
+    function calcCS() {
+      const slots = parseInt(document.getElementById('cs-slots').value);
+      document.getElementById('cs-slots-val').textContent = `${slots} Sloturi`;
+
+      // Pret de baza slots: 10 = €4.99, 12 = €5.99, 16 = €7.49, 20 = €8.99, 24 = €10.49, 32 = €13.99
+      let basePrice = 4.99 + (slots - 10) * 0.40;
+
+      // Profil CPU
+      const perfRadio = document.querySelector('input[name="cs-perf"]:checked');
+      const perfPrice = perfRadio ? parseFloat(perfRadio.value) : 0;
+
+      document.getElementById('cs-cpu-std-label').className = perfPrice === 0 ? 'cursor-pointer border-2 border-amber-500 rounded-xl p-2.5 text-center bg-amber-50' : 'cursor-pointer border border-gray-200 rounded-xl p-2.5 text-center bg-white';
+      document.getElementById('cs-cpu-high-label').className = perfPrice > 0 ? 'cursor-pointer border-2 border-amber-500 rounded-xl p-2.5 text-center bg-amber-50' : 'cursor-pointer border border-gray-200 rounded-xl p-2.5 text-center bg-white';
+
+      // Port dedicat
+      const portBox = document.getElementById('cs-port');
+      const portPrice = portBox && portBox.checked ? parseFloat(portBox.value) : 0;
+
+      const total = (basePrice + perfPrice + portPrice).toFixed(2);
+      document.getElementById('cs-total').textContent = total;
+      document.getElementById('cs-summary-price').textContent = `€${total}`;
+    }
+
+    // Initializare
+    calcMinecraft();
+    calcCS();
+  </script>
+</body>
+</html>
