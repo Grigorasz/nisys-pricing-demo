@@ -1,134 +1,327 @@
-<!doctype html>
-<html lang="ro">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NISYS – Web Hosting (Demo)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="min-h-screen bg-gray-50 text-slate-900">
-  <!-- Header / Logo -->
-  <section class="flex flex-col items-center justify-center pt-16 pb-6">
-    <div class="text-center">
-      <img src="img/poza6.png" alt="NISYS Logo"
-           class="mx-auto w-56 md:w-64 mt-2 block"
-           style="filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));" />
-      <div class="mt-4 w-24 h-1 bg-amber-500 mx-auto rounded-full"></div>
-      <p class="mt-3 text-xs text-slate-500 max-w-2xl mx-auto">
-        * Aceasta este o pagină demo cu scop informativ; nu reprezintă o ofertă comercială oficială.
-      </p>
+import Link from 'next/link'
+import { Shield, Zap, HardDrive, RefreshCw, Monitor, Users } from 'lucide-react'
+import PricingCard from '@/components/PricingCard'
+import FeatureCard from '@/components/FeatureCard'
+
+const minecraftPlans = [
+  {
+    name: 'Trial Minecraft',
+    price: 'Gratuit',
+    period: '24 ore',
+    highlight: 'Fără card de credit',
+    features: [
+      '1 GB RAM dedicat',
+      'Server Minecraft Java/Bedrock',
+      'DDoS Protection inclus',
+      'Panou Multicraft',
+      'Backup manual',
+      'Suport prin email',
+    ],
+    isPopular: false,
+    ctaText: 'Încearcă gratuit →',
+    ctaHref: '#signup',
+  },
+  {
+    name: 'Starter',
+    price: '3.99€',
+    period: 'lună',
+    highlight: 'Recomandat pentru prieteni',
+    features: [
+      '2 GB RAM dedicat',
+      '20 sloturi jucători',
+      'Server Minecraft Java/Bedrock',
+      'DDoS Protection inclus',
+      'Panou Multicraft complet',
+      'Backup zilnic automat',
+      'Moduri & Plugin-uri',
+      'Suport prioritar',
+    ],
+    isPopular: true,
+    ctaText: 'Alege Starter →',
+    ctaHref: '#signup',
+  },
+  {
+    name: 'Standard',
+    price: '6.99€',
+    period: 'lună',
+    highlight: 'Comunități mari',
+    features: [
+      '4 GB RAM dedicat',
+      '50 sloturi jucători',
+      'Server Minecraft Java/Bedrock',
+      'DDoS Protection inclus',
+      'Panou Multicraft complet',
+      'Backup zilnic automat',
+      'Moduri & Plugin-uri nelimitate',
+      'SSD NVMe storage',
+      'Suport dedicat 24/7',
+    ],
+    isPopular: false,
+    ctaText: 'Alege Standard →',
+    ctaHref: '#signup',
+  },
+]
+
+const cs2Plans = [
+  {
+    name: 'Trial CS2',
+    price: 'Gratuit',
+    period: '24 ore',
+    highlight: 'Fără card de credit',
+    features: [
+      '10 sloturi jucători',
+      'Server CS2 dedicat',
+      'DDoS Protection inclus',
+      'RCON access',
+      'Tickrate 64',
+      'Suport prin email',
+    ],
+    isPopular: false,
+    ctaText: 'Încearcă gratuit →',
+    ctaHref: '#signup',
+  },
+  {
+    name: 'Standard CS2',
+    price: '4.99€',
+    period: 'lună',
+    highlight: 'Cel mai popular',
+    features: [
+      '10 sloturi jucători',
+      'Server CS2 dedicat',
+      'DDoS Protection inclus',
+      'RCON + SourceMod',
+      'Tickrate 128',
+      'Backup zilnic automat',
+      'Panel grafic Pterodactyl',
+      'Suport prioritar 24/7',
+    ],
+    isPopular: true,
+    ctaText: 'Alege Standard →',
+    ctaHref: '#signup',
+  },
+]
+
+const features = [
+  {
+    icon: <HardDrive className="h-6 w-6" />,
+    title: 'RAM Dedicat',
+    description: 'Fiecare server primește RAM dedicat, nu partajat. Performanță constantă fără vecini zgomotoși.',
+  },
+  {
+    icon: <Shield className="h-6 w-6" />,
+    title: 'DDoS Protection',
+    description: 'Protecție automată Cloudflare 2.5 Gbps. Serverul tău rămâne online chiar și sub atac.',
+  },
+  {
+    icon: <RefreshCw className="h-6 w-6" />,
+    title: 'Backup Zilnic',
+    description: 'Backup automat zilnic al întregii lumi / configurații. Restaurare cu un singur click.',
+  },
+  {
+    icon: <Monitor className="h-6 w-6" />,
+    title: 'Panel Grafic Profesional',
+    description: 'Multicraft pentru Minecraft și Pterodactyl pentru CS2. Controlezi totul din browser.',
+  },
+  {
+    icon: <Zap className="h-6 w-6" />,
+    title: 'Fără Sharing',
+    description: 'Resurse dedicate, nu partajate. CPU și RAM rezervate exclusiv serverului tău.',
+  },
+  {
+    icon: <Users className="h-6 w-6" />,
+    title: 'Suport Uman 24/7',
+    description: 'Echipă reală de suport tehnic, nu boți. Răspuns în maxim 2 ore pentru planurile plătite.',
+  },
+]
+
+export default function GamingPage() {
+  return (
+    <div className="bg-gray-50">
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-amber-50 via-white to-gray-50 py-20 px-4">
+        <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-amber-200 opacity-30 blur-3xl" />
+        <div className="mx-auto max-w-4xl text-center relative">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-100 px-4 py-1.5 text-sm font-medium text-amber-700">
+            🎮 Minecraft & CS2 — Servere dedicate
+          </div>
+          <h1 className="mb-5 text-4xl font-extrabold text-gray-900 md:text-6xl">
+            Server-e de jocuri{' '}
+            <span className="text-amber-500">fără compromisuri</span>
+          </h1>
+          <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
+            Latență minimă în România, RAM dedicat, DDoS protection și panouri grafice profesionale.
+            Minecraft și CS2 la un click distanță.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="#minecraft"
+              className="rounded-xl bg-amber-500 px-8 py-4 font-bold text-white hover:bg-amber-600 transition-colors shadow-lg"
+            >
+              Minecraft →
+            </Link>
+            <Link
+              href="#cs2"
+              className="rounded-xl border-2 border-amber-400 px-8 py-4 font-bold text-amber-700 hover:bg-amber-50 transition-colors"
+            >
+              CS2 →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Game selector pills ── */}
+      <section className="py-10 px-4 bg-white border-b border-amber-100">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              {
+                emoji: '⛏️',
+                name: 'Minecraft',
+                desc: 'Java & Bedrock Edition',
+                detail: 'Multicraft Panel · Plugin-uri · Moduri',
+                href: '#minecraft',
+              },
+              {
+                emoji: '🔫',
+                name: 'Counter-Strike 2',
+                desc: 'Matchmaking privat & compétitiv',
+                detail: 'Pterodactyl Panel · SourceMod · 128 tick',
+                href: '#cs2',
+              },
+            ].map((game) => (
+              <a
+                key={game.name}
+                href={game.href}
+                className="group flex items-center gap-5 rounded-2xl border border-amber-300 bg-gray-50 p-6 hover:bg-amber-50 hover:border-amber-400 hover:-translate-y-0.5 transition-all shadow-sm"
+              >
+                <div className="text-5xl">{game.emoji}</div>
+                <div>
+                  <p className="font-bold text-gray-900 text-lg">{game.name}</p>
+                  <p className="text-amber-700 text-sm font-medium">{game.desc}</p>
+                  <p className="text-gray-500 text-xs mt-1">{game.detail}</p>
+                </div>
+                <div className="ml-auto text-amber-400 group-hover:translate-x-1 transition-transform text-xl">→</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Minecraft Pricing ── */}
+      <section id="minecraft" className="py-20 px-4 bg-gray-50">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-12 text-center">
+            <div className="text-5xl mb-4">⛏️</div>
+            <h2 className="text-3xl font-extrabold text-gray-900 md:text-4xl">Minecraft Hosting</h2>
+            <p className="mt-3 text-gray-500">Java & Bedrock Edition · Multicraft Panel · România</p>
+            <p className="mt-1 text-xs text-gray-400">⚠️ Prețuri orientative</p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-start">
+            {minecraftPlans.map((plan) => (
+              <PricingCard key={plan.name} {...plan} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CS2 Pricing ── */}
+      <section id="cs2" className="py-20 px-4 bg-white">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-12 text-center">
+            <div className="text-5xl mb-4">🔫</div>
+            <h2 className="text-3xl font-extrabold text-gray-900 md:text-4xl">Counter-Strike 2</h2>
+            <p className="mt-3 text-gray-500">Server dedicat · Pterodactyl Panel · 128 tickrate</p>
+            <p className="mt-1 text-xs text-gray-400">⚠️ Prețuri orientative</p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 items-start max-w-2xl mx-auto">
+            {cs2Plans.map((plan) => (
+              <PricingCard key={plan.name} {...plan} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Features ── */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-extrabold text-gray-900 md:text-4xl">
+              De ce NISYS Gaming?
+            </h2>
+            <p className="mt-3 text-gray-500">
+              Performanță reală pentru gameri reali
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((f, i) => (
+              <FeatureCard
+                key={f.title}
+                icon={f.icon}
+                title={f.title}
+                description={f.description}
+                highlight={i === 3} /* Panel highlight */
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Panel Preview ── */}
+      <section className="py-16 px-4 bg-white">
+        <div className="mx-auto max-w-5xl">
+          <div className="rounded-3xl border-2 border-amber-400 bg-gradient-to-br from-amber-50 to-orange-50 p-8 md:p-12 text-center">
+            <div className="text-5xl mb-4">🖥️</div>
+            <h3 className="text-2xl font-extrabold text-gray-900 mb-4">
+              Panouri grafice profesionale
+            </h3>
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Nu ai nevoie de cunoștințe tehnice. Gestionezi serverul tău prin interfețe moderne
+              și intuitive, accesibile din orice browser.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg mx-auto">
+              <div className="bg-white rounded-2xl border border-amber-200 p-6 shadow-sm">
+                <div className="text-4xl mb-3">⛏️</div>
+                <p className="font-bold text-gray-900">Multicraft</p>
+                <p className="text-sm text-gray-500 mt-1">
+                  Panou dedicat Minecraft. Start/stop server, consolă live, players online, backup cu un click.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl border border-amber-200 p-6 shadow-sm">
+                <div className="text-4xl mb-3">🔫</div>
+                <p className="font-bold text-gray-900">Pterodactyl</p>
+                <p className="text-sm text-gray-500 mt-1">
+                  Panou open-source de nivel enterprise. Ideal pentru CS2, suportă multiple servere din același cont.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section id="signup" className="bg-gradient-to-r from-amber-500 to-orange-500 py-20 px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="mb-4 text-3xl font-extrabold text-white md:text-4xl">
+            Serverul tău e la un click distanță
+          </h2>
+          <p className="mb-8 text-amber-100 text-lg">
+            Trial gratuit 24 ore. Fără card de credit. Activare în 2 minute.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="email"
+              placeholder="adresa@email.ro"
+              className="flex-1 rounded-xl px-5 py-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/60"
+            />
+            <button
+              type="submit"
+              className="rounded-xl bg-white px-6 py-4 font-bold text-amber-600 hover:bg-amber-50 transition-colors whitespace-nowrap"
+            >
+              Încearcă gratuit →
+            </button>
+          </form>
+        </div>
+      </section>
     </div>
-  </section>
-
-  <!-- Hero scurt -->
-  <section class="max-w-7xl mx-auto px-4 pt-2 pb-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 text-amber-800 px-3 py-1 text-xs">
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-        NISYS Web Hosting – SSL inclus & backup
-      </span>
-      <h1 class="mt-4 text-4xl md:text-5xl font-semibold leading-tight">
-        Găzduire web rapidă. <span class="text-slate-500">Suport prietenos.</span>
-      </h1>
-      <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
-        Planuri simple pentru site-uri personale, magazine online și proiecte de firmă.
-      </p>
-    </div>
-  </section>
-
-  <!-- Planuri Găzduire Web -->
-  <section id="web" class="max-w-7xl mx-auto px-4 pb-10">
-    <h2 class="text-2xl font-semibold text-center">Planuri Găzduire Web</h2>
-    <p class="mt-2 text-slate-600 max-w-2xl mx-auto text-center">SSL inclus, backup zilnic, panou de control prietenos.</p>
-
-    <div class="mt-6 grid md:grid-cols-3 gap-6 items-stretch">
-      <!-- Web Basic -->
-      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col
-                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold group-hover:text-amber-900">Web Basic</h3>
-          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
-          €2<span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
-          <span class="ml-2 text-lg text-slate-400 line-through">€3</span>
-        </div>
-        <p class="mt-3 text-slate-600 group-hover:text-amber-900">1 site, 1 GB spațiu, 1 DB, trafic 50 GB/lună.</p>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
-          <li>Panou de administrare</li>
-          <li>PHP 8.x + cache</li>
-          <li>Backup zilnic</li>
-          <li>E-mail 1 căsuță</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Comandă Web Basic</a>
-        </div>
-      </div>
-
-      <!-- Web Pro -->
-      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col ring-2 ring-amber-500/40
-                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold group-hover:text-amber-900">Web Pro</h3>
-          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
-          €5<span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
-          <span class="ml-2 text-lg text-slate-400 line-through">€7</span>
-        </div>
-        <p class="mt-3 text-slate-600 group-hover:text-amber-900">3 site-uri, 5 GB spațiu, 3 DB, trafic 200 GB/lună.</p>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
-          <li>Staging WordPress</li>
-          <li>Backups automate + restore</li>
-          <li>E-mail până la 5 căsuțe</li>
-          <li>Protecție WAF de bază</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Comandă Web Pro</a>
-        </div>
-      </div>
-
-      <!-- Web Business -->
-      <div class="group rounded-3xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col
-                  transition transform hover:scale-[1.02] hover:shadow-xl hover:border-amber-300 hover:bg-amber-50">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold group-hover:text-amber-900">Web Business</h3>
-          <span class="text-xs rounded-full bg-amber-100 px-2 py-1 text-amber-800">Promo</span>
-        </div>
-        <div class="mt-4 text-4xl font-bold group-hover:text-amber-900">
-          €9<span class="text-base font-normal text-slate-500 group-hover:text-amber-900">/lună</span>
-          <span class="ml-2 text-lg text-slate-400 line-through">€12</span>
-        </div>
-        <p class="mt-3 text-slate-600 group-hover:text-amber-900">Site-uri nelimitate*, 10 GB spațiu, trafic 500 GB/lună.</p>
-        <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside flex-1">
-          <li>WAF + rate-limit</li>
-          <li>Monitorizare uptime</li>
-          <li>E-mail până la 10 căsuțe</li>
-          <li>Asistență în ore de program</li>
-        </ul>
-        <div class="mt-auto pt-6">
-          <a class="w-full inline-flex justify-center rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#contact">Comandă Web Business</a>
-        </div>
-      </div>
-    </div>
-    <p class="mt-3 text-xs text-slate-500 text-center">* în limite rezonabile de resurse (CPU/RAM/procese) pentru planul ales.</p>
-  </section>
-
-  <!-- CTA -->
-  <section id="contact" class="max-w-7xl mx-auto px-4 pb-16">
-    <div class="rounded-3xl border border-gray-200 bg-white shadow-sm p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div>
-        <h3 class="text-2xl font-semibold">Hai să-ți găzduim site-ul.</h3>
-        <p class="text-slate-600 mt-2">Alege planul potrivit sau scrie-ne și te ajutăm cu migrarea.</p>
-      </div>
-      <div class="flex items-center gap-3">
-        <a class="rounded-2xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 font-medium" href="#">Creează cont</a>
-        <a class="rounded-2xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 px-5 py-3 font-medium inline-flex items-center gap-2" href="mailto:contact@nisys.ro">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-          Contactează-ne
-        </a>
-      </div>
-    </div>
-  </section>
-</body>
-</html>
+  )
+}
